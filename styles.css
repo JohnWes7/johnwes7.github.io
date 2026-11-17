@@ -383,17 +383,16 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 }
 .slide.is-active { opacity: 1; transform: scale(1); }
 
-/* Page dots: a 6px dot each; the current one stretches into a pill that fills while autoplaying. */
+/* Page dots: a 6px dot each. The current one is a pill whose fill grows from a dot
+   (--fill 0) to the full pill (--fill 1); width, not scaleX, so both ends stay round. */
 .g-dots { display: flex; gap: 2px; flex: none; }
 .g-dot { position: relative; width: 20px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; transition: width .35s var(--ease); }
-.g-dot::before, .g-dot::after { content: ""; position: absolute; left: 7px; right: 7px; top: 9px; height: 6px; border-radius: 6px; }
-.g-dot::before { background: rgba(255, 255, 255, 0.24); transition: background-color .2s; }
+.g-dot::before, .g-dot::after { content: ""; position: absolute; left: 7px; top: 9px; height: 6px; border-radius: 3px; }
+.g-dot::before { right: 7px; background: rgba(255, 255, 255, 0.24); transition: background-color .2s; }
 .g-dot:hover::before { background: rgba(255, 255, 255, 0.5); }
-.g-dot::after { background: var(--text); transform: scaleX(0); transform-origin: left; }
+.g-dot::after { width: calc(6px + (100% - 20px) * var(--fill, 0)); background: var(--text); opacity: 0; }
 .g-dot.is-active { width: 40px; }
-.g-dot.is-active::after { transform: scaleX(1); }
-.g-dot.is-active.run::after { animation: fill var(--int, 5s) linear both; }
-@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.g-dot.is-active::after { opacity: 1; }
 
 .float-card {
   position: absolute; z-index: 2; bottom: 0; left: -7%; width: 42%;
@@ -492,24 +491,6 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 .card-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 16px; }
 .card-links a { color: var(--amber); text-decoration: none; font-weight: 550; font-size: 0.95rem; border-bottom: 1px solid rgba(245, 165, 36, 0.35); transition: border-color .2s; }
 .card-links a:hover { border-bottom-color: var(--amber); }
-
-/* FallEndless cover (no screenshots yet) */
-.cover {
-  cursor: default; display: flex; flex-direction: column; justify-content: flex-end; padding: 26px 28px;
-  background: radial-gradient(90% 100% at 50% -10%, #2b2364 0%, #120f2e 55%, #08070f 100%);
-}
-.fall { position: absolute; inset: 0; overflow: hidden; }
-.fall i { position: absolute; top: -45%; width: 1px; height: 45%; background: linear-gradient(transparent, rgba(196, 186, 255, 0.75)); animation: fall 3.2s linear infinite; }
-.fall i:nth-child(1) { left: 12%; animation-delay: -0.4s; }
-.fall i:nth-child(2) { left: 26%; animation-delay: -2.1s; animation-duration: 2.6s; }
-.fall i:nth-child(3) { left: 41%; animation-delay: -1.2s; }
-.fall i:nth-child(4) { left: 55%; animation-delay: -2.8s; animation-duration: 3.8s; }
-.fall i:nth-child(5) { left: 68%; animation-delay: -0.9s; animation-duration: 2.9s; }
-.fall i:nth-child(6) { left: 81%; animation-delay: -1.7s; }
-.fall i:nth-child(7) { left: 92%; animation-delay: -3s; animation-duration: 3.5s; }
-@keyframes fall { to { transform: translateY(330%); } }
-.cover-title { position: relative; margin: 0; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; font-stretch: 125%; letter-spacing: -0.04em; color: #efeaff; line-height: 1; }
-.cover-sub { position: relative; margin: 8px 0 0; font-family: var(--mono); font-size: 0.74rem; color: rgba(220, 214, 255, 0.7); }
 
 /* ══ Skills ═══════════════════════════════════════════════ */
 .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; margin-top: 36px; }

@@ -10,12 +10,55 @@
   function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
   function lang() { return root.getAttribute('data-lang') === 'zh' ? 'zh' : 'en'; }
 
-  // Calls back with true/false as the element enters or leaves the viewport.
+  // Calls back with true once at least `threshold` of the element is on screen, false when it drops below.
   function watch(el, cb, threshold) {
+    var t = threshold || 0;
     if (!('IntersectionObserver' in window)) { cb(true); return; }
     new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { cb(e.isIntersecting); });
-    }, { threshold: threshold || 0 }).observe(el);
+      entries.forEach(function (e) { cb(e.isIntersecting && e.intersectionRatio >= t * 0.99); });
+    }, { threshold: t }).observe(el);
+  }
+
+  // Autoplay whose progress is drawn in the active page dot (--fill, 0 to 1).
+  // It pauses in place while off screen or in a background tab and resumes from the same
+  // point; once the visitor takes control it stops for good and the dot shows as full.
+  function autoplay(interval, next, activeDot) {
+    var elapsed = 0, last = null, raf = null, stopped = false, visible = false;
+    function canRun() { return !stopped && visible && !document.hidden && !reduce.matches; }
+    function paint() {
+      var d = activeDot();
+      if (!d) return;
+      var f = (stopped || reduce.matches) ? 1 : Math.min(elapsed / interval, 1);
+      d.style.setProperty('--fill', f.toFixed(3));
+    }
+    function frame(t) {
+      raf = null;
+      if (!canRun()) { last = null; return; }
+      if (last !== null) elapsed += Math.min(t - last, 100); // a long gap (e.g. a hiccup) shouldn't skip ahead
+      last = t;
+      if (elapsed >= interval) { elapsed = 0; next(); }
+      paint();
+      raf = requestAnimationFrame(frame);
+    }
+    function kick() {
+      paint();
+      if (!raf && canRun()) { last = null; raf = requestAnimationFrame(frame); }
+    }
+    document.addEventListener('visibilitychange', kick);
+    return {
+      visible: function (v) { visible = v; kick(); },
+      restart: function () { elapsed = 0; paint(); },
+      stop: function () { stopped = true; paint(); }
+    };
+  }
+
+  // Shared by galleries and the phone carousel: mark the active dot, clear the others.
+  function markDots(dots, a, attr) {
+    dots.forEach(function (d, k) {
+      d.classList.toggle('is-active', k === a);
+      d.setAttribute(attr, k === a ? 'true' : 'false');
+      if (k !== a) d.style.setProperty('--fill', '0');
+    });
   }
 
   /* ── Language toggle ──────────────────────────────────── */
@@ -84,57 +127,46 @@
   updateBar();
   if (!reduce.matches) updateProgress();
 
-  /* ── Image galleries (browser frames, mini cards) ─────── */
+  /* ── Image galleries (browser frames, the energy card) ── */
   $$('[data-gallery]').forEach(function (g) {
     var slides = $$('.slide', g);
     var caps = $$('.cap', g);
     var dotsWrap = $('.g-dots', g);
     var view = $('.view', g);
-    var n = slides.length, a = 0, timer = null;
-    var inView = false, hover = false, stopped = false, INTERVAL = 5000;
-    g.style.setProperty('--int', INTERVAL + 'ms');
+    var n = slides.length, a = 0;
 
     var dots = slides.map(function (s, i) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'g-dot';
       b.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + n);
-      b.addEventListener('click', function (e) { e.stopPropagation(); stopped = true; go(i); });
+      b.addEventListener('click', function (e) { e.stopPropagation(); auto.stop(); go(i); });
       dotsWrap.appendChild(b);
       return b;
     });
+    var auto = autoplay(5000, function () { go(a + 1); }, function () { return dots[a]; });
+    if (n < 2) auto.stop();
 
-    function running() { return n > 1 && !stopped && inView && !hover && !document.hidden && !reduce.matches; }
-    function tick() {
-      clearTimeout(timer);
-      dots.forEach(function (d) { d.classList.remove('run'); });
-      if (!running()) return;
-      void dots[a].offsetWidth; // restart the progress fill
-      dots[a].classList.add('run');
-      timer = setTimeout(function () { go(a + 1); }, INTERVAL);
-    }
     function go(i) {
       a = (i + n) % n;
       slides.forEach(function (s, k) { s.classList.toggle('is-active', k === a); });
       caps.forEach(function (c, k) { c.classList.toggle('is-active', k === a); });
-      dots.forEach(function (d, k) {
-        d.classList.toggle('is-active', k === a);
-        d.setAttribute('aria-current', k === a ? 'true' : 'false');
-      });
-      tick();
+      markDots(dots, a, 'aria-current');
+      auto.restart();
     }
 
     view.setAttribute('role', 'button');
     view.setAttribute('tabindex', '0');
     view.setAttribute('aria-label', 'Enlarge image');
-    function zoom() { var s = slides[a]; openLightbox(s.currentSrc || s.src, s.alt, s.getAttribute('data-cap-zh')); }
+    function zoom() {
+      var s = slides[a];
+      auto.stop();
+      openLightbox(s.currentSrc || s.src, s.alt, s.getAttribute('data-cap-zh'));
+    }
     view.addEventListener('click', zoom);
     view.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(); } });
 
-    g.addEventListener('pointerenter', function () { hover = true; tick(); });
-    g.addEventListener('pointerleave', function () { hover = false; tick(); });
-    document.addEventListener('visibilitychange', tick);
-    watch(g, function (v) { inView = v; tick(); }, 0.35);
+    watch(g, auto.visible, 0.35);
     go(0);
   });
 
@@ -144,11 +176,8 @@
     var caps = $$('.cap', box);
     var stage = $('.phone-stage', box);
     var dotsWrap = $('.car-dots', box);
-    var n = phones.length, a = 0, timer = null;
-    var inView = false, hover = false, stopped = false, INTERVAL = 4200;
-    box.style.setProperty('--int', INTERVAL + 'ms');
+    var n = phones.length, a = 0;
 
-    // One page dot per screen.
     var dots = phones.map(function (p, i) {
       var b = document.createElement('button');
       b.type = 'button';
@@ -158,6 +187,8 @@
       dotsWrap.appendChild(b);
       return b;
     });
+    var auto = autoplay(4200, function () { go(a + 1); }, function () { return dots[a]; });
+
     function label() {
       dots.forEach(function (b, i) {
         var t = $('[data-l="' + lang() + '"]', caps[i]);
@@ -174,22 +205,10 @@
         p.setAttribute('aria-hidden', pos === 'center' ? 'false' : 'true');
       });
       caps.forEach(function (c, i) { c.classList.toggle('is-active', i === a); });
-      dots.forEach(function (b, i) {
-        b.classList.toggle('is-active', i === a);
-        b.setAttribute('aria-selected', i === a ? 'true' : 'false');
-      });
+      markDots(dots, a, 'aria-selected');
     }
-    function running() { return !stopped && inView && !hover && !document.hidden && !reduce.matches; }
-    function schedule() {
-      clearTimeout(timer);
-      dots.forEach(function (b) { b.classList.remove('run'); });
-      if (!running()) return;
-      void dots[a].offsetWidth; // restart the progress bar
-      dots[a].classList.add('run');
-      timer = setTimeout(function () { go(a + 1); }, INTERVAL);
-    }
-    function go(i) { a = (i + n) % n; layout(); schedule(); }
-    function user(i) { stopped = true; go(i); }
+    function go(i) { a = (i + n) % n; layout(); auto.restart(); }
+    function user(i) { auto.stop(); go(i); }
 
     // Swipe left/right on touch screens; a swipe shouldn't also count as a tap.
     var sx = null, sy = null, swiped = false;
@@ -207,6 +226,7 @@
         if (swiped) { swiped = false; return; }
         if (p.getAttribute('data-pos') === 'center') {
           var img = $('img', p);
+          auto.stop();
           openLightbox(img.currentSrc || img.src, img.alt, null);
         } else {
           user(i);
@@ -219,10 +239,7 @@
       if (e.key === 'ArrowLeft') { e.preventDefault(); user(a - 1); }
       if (e.key === 'ArrowRight') { e.preventDefault(); user(a + 1); }
     });
-    box.addEventListener('pointerenter', function () { hover = true; schedule(); });
-    box.addEventListener('pointerleave', function () { hover = false; schedule(); });
-    document.addEventListener('visibilitychange', schedule);
-    watch(box, function (v) { inView = v; schedule(); }, 0.4);
+    watch(box, auto.visible, 0.4);
 
     // Subtle tilt toward the pointer, eased so it feels physical.
     if (finePointer.matches && !reduce.matches) {
@@ -245,7 +262,7 @@
       });
     }
     label();
-    layout();
+    go(0);
   });
 
   /* ── Card spotlight ───────────────────────────────────── */
