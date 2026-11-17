@@ -339,11 +339,16 @@ main { max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding:
 .contact-facts { margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
 .contact-facts dt { color: var(--muted); font-size: 0.85rem; margin-bottom: 4px; }
 .contact-facts dd { margin: 0; }
+.contact-facts s { color: var(--muted); text-decoration-color: var(--amber); text-decoration-thickness: 2px; }
 .contact-facts a { color: var(--text); text-decoration-color: var(--line); text-underline-offset: 3px; }
 .contact-facts a:hover { text-decoration-color: var(--amber); }
 
 .foot { max-width: calc(var(--max) + 2 * var(--gutter)); margin: 96px auto 0; padding: 24px var(--gutter) 40px; color: var(--muted); font-size: 0.85rem; }
-.foot p { margin: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+.foot-inner { border-top: 1px solid var(--line); padding-top: 24px; }
+.foot p { margin: 0; max-width: 46em; }
+.foot .built { color: var(--text); }
+.foot .ai { margin-top: 10px; line-height: 1.7; }
+.foot s { color: var(--muted); text-decoration-color: var(--amber); text-decoration-thickness: 2px; }
 
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 960px) {
