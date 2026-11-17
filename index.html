@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Mona+Sans:wdth,wght@75..125,200..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<!-- Bump ?v= whenever styles.css or main.js change, so browsers don't pair new HTML with a cached old file. -->
+<link rel="stylesheet" href="styles.css?v=20261118-1">
 <script>
   // Apply the saved language before first paint so the page doesn't flicker.
   (function () {
@@ -165,7 +166,6 @@
           <p class="legend">
             <span><i class="built"></i><span data-l="en">Built</span><span data-l="zh">已完成</span></span>
             <span><i class="wip"></i><span data-l="en">In progress</span><span data-l="zh">开发中</span></span>
-            <span><i class="next"></i><span data-l="en">Next</span><span data-l="zh">下一步</span></span>
           </p>
         </div>
 
@@ -191,11 +191,11 @@
 
         <div class="arch-link" aria-hidden="true"><i></i><i></i></div>
 
-        <section class="layer next">
-          <h4><span data-l="en">Shared core</span><span data-l="zh">共享核心</span> <span class="tag">Kotlin Multiplatform</span><span class="state next"><span data-l="en">Next</span><span data-l="zh">下一步</span></span></h4>
+        <section class="layer wip">
+          <h4><span data-l="en">Shared core</span><span data-l="zh">共享核心</span> <span class="tag">Kotlin Multiplatform</span><span class="state wip"><span data-l="en">In progress</span><span data-l="zh">开发中</span></span></h4>
           <ul>
             <li><span data-l="en">The module is set up and wired to Ktor for networking and Kermit for logging.</span><span data-l="zh">模块已经搭好，接入了 Ktor（网络）和 Kermit（日志）。</span></li>
-            <li><span data-l="en">Next, the services move in here, so iOS and Android run one implementation of the same logic while each keeps its own UI.</span><span data-l="zh">接下来把服务层移进来，iOS 和安卓共用同一份逻辑，界面仍各自原生。</span></li>
+            <li><span data-l="en">The services are moving in here, so iOS and Android will run one implementation of the same logic while each keeps its own UI.</span><span data-l="zh">服务层正在移进来，iOS 和安卓将共用同一份逻辑，界面仍各自原生。</span></li>
           </ul>
           <p class="stack">Kotlin Multiplatform / Ktor / Kermit</p>
         </section>
@@ -561,6 +561,6 @@
   <p class="lb-cap"></p>
 </dialog>
 
-<script src="main.js"></script>
+<script src="main.js?v=20261118-1"></script>
 </body>
 </html>

@@ -347,7 +347,6 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 .legend i { display: inline-block; width: 16px; height: 11px; margin-right: 7px; border-radius: 3px; vertical-align: -1px; }
 .legend i.built { border: 1.5px solid var(--line-2); background: rgba(255, 255, 255, 0.06); }
 .legend i.wip { border: 1.5px dashed rgba(245, 165, 36, 0.75); }
-.legend i.next { border: 1.5px dashed rgba(173, 199, 214, 0.45); }
 
 .arch-row { display: grid; gap: 16px; }
 .arch-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -358,14 +357,12 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
   border: 1px solid var(--line);
 }
 .layer.wip { border: 1.5px dashed rgba(245, 165, 36, 0.45); }
-.layer.next { border: 1.5px dashed rgba(173, 199, 214, 0.3); background: rgba(255, 255, 255, 0.018); }
 .layer.ext { background: transparent; }
 .layer h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; font-stretch: 110%; letter-spacing: -0.01em; }
 .layer .tag { font-family: var(--mono); font-weight: 400; font-stretch: 100%; font-size: 0.7rem; color: var(--g1); }
 .state { margin-left: auto; padding: 3px 9px; border-radius: 99px; font-size: 0.72rem; font-weight: 600; font-stretch: 100%; letter-spacing: 0; }
 .state.built { color: var(--ok); background: rgba(79, 209, 161, 0.1); }
 .state.wip { color: var(--amber); background: rgba(245, 165, 36, 0.1); }
-.state.next { color: var(--muted); background: rgba(255, 255, 255, 0.06); }
 .layer ul { margin: 0; padding-left: 1.1em; }
 .layer li { margin: 8px 0; color: var(--soft); font-size: 0.94rem; }
 .layer li::marker { color: var(--faint); }
