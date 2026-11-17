@@ -234,7 +234,7 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
   font-stretch: 118%; font-weight: 760;
   font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1; letter-spacing: -0.04em;
 }
-.section-title .path { font-family: var(--mono); font-weight: 400; font-stretch: 100%; font-size: 0.42em; letter-spacing: 0; color: var(--amber); vertical-align: 0.62em; margin-right: 0.35em; }
+.section-title .path { font-family: var(--mono); font-weight: 500; font-stretch: 100%; font-size: 0.6em; letter-spacing: 0; color: var(--amber); vertical-align: 0.14em; margin-right: 0.25em; }
 
 /* ══ Featured work ════════════════════════════════════════ */
 .feature { position: relative; padding: clamp(64px, 11vh, 130px) 0 0; scroll-margin-top: 40px; }
