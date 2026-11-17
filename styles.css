@@ -282,7 +282,7 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 
 /* ── Phone carousel (steaL) ───────────────────────────── */
 .phones { --pw: clamp(178px, 20vw, 272px); --spread: calc(0.5 + 0.5 * var(--p, 1)); perspective: 1700px; }
-.phone-stage { position: relative; height: calc(var(--pw) * 2.095 + 30px); transform-style: preserve-3d; }
+.phone-stage { position: relative; height: calc(var(--pw) * 2.095 + 30px); transform-style: preserve-3d; touch-action: pan-y; }
 .phone {
   position: absolute; left: 50%; top: 50%; margin: 0;
   width: var(--pw); aspect-ratio: 100 / 209.5;
@@ -328,7 +328,9 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 }
 .car-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); }
 .car-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.car-caps { min-width: 0; width: 22em; max-width: 64vw; text-align: center; }
+.car-dots { min-width: 7.5rem; justify-content: center; }
+.car-dots .g-dot::after { background: var(--g1); }
+.car-caps { margin-top: 14px; min-height: 1.6em; text-align: center; }
 
 /* Captions shared by carousels and galleries */
 .cap { display: none; margin: 0; font-size: 0.92rem; color: var(--soft); }
@@ -380,12 +382,14 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 }
 .slide.is-active { opacity: 1; transform: scale(1); }
 
-.g-dots { display: flex; gap: 4px; flex: none; }
-.g-dot { position: relative; width: 22px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; transition: width .3s var(--ease); }
-.g-dot::before, .g-dot::after { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 4px; }
-.g-dot::before { background: rgba(255, 255, 255, 0.2); }
+/* Page dots: a 6px dot each; the current one stretches into a pill that fills while autoplaying. */
+.g-dots { display: flex; gap: 2px; flex: none; }
+.g-dot { position: relative; width: 20px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; transition: width .35s var(--ease); }
+.g-dot::before, .g-dot::after { content: ""; position: absolute; left: 7px; right: 7px; top: 9px; height: 6px; border-radius: 6px; }
+.g-dot::before { background: rgba(255, 255, 255, 0.24); transition: background-color .2s; }
+.g-dot:hover::before { background: rgba(255, 255, 255, 0.5); }
 .g-dot::after { background: var(--text); transform: scaleX(0); transform-origin: left; }
-.g-dot.is-active { width: 36px; }
+.g-dot.is-active { width: 40px; }
 .g-dot.is-active::after { transform: scaleX(1); }
 .g-dot.is-active.run::after { animation: fill var(--int, 5s) linear both; }
 @keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }

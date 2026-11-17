@@ -27,6 +27,7 @@
     try { localStorage.setItem('lang', l); } catch (e) {}
     if (lightbox.open && lbData) lbCap.textContent = captionFor(lbData);
     requestAnimationFrame(redrawWires);
+    document.dispatchEvent(new Event('langchange'));
   });
 
   /* ── Lightbox ─────────────────────────────────────────── */
@@ -142,8 +143,28 @@
     var phones = $$('.phone', box);
     var caps = $$('.cap', box);
     var stage = $('.phone-stage', box);
+    var dotsWrap = $('.car-dots', box);
     var n = phones.length, a = 0, timer = null;
     var inView = false, hover = false, stopped = false, INTERVAL = 4200;
+    box.style.setProperty('--int', INTERVAL + 'ms');
+
+    // One page dot per screen.
+    var dots = phones.map(function (p, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'g-dot';
+      b.setAttribute('role', 'tab');
+      b.addEventListener('click', function () { user(i); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    function label() {
+      dots.forEach(function (b, i) {
+        var t = $('[data-l="' + lang() + '"]', caps[i]);
+        b.setAttribute('aria-label', t ? t.textContent : 'Screen ' + (i + 1));
+      });
+    }
+    document.addEventListener('langchange', label);
 
     function layout() {
       phones.forEach(function (p, i) {
@@ -153,17 +174,37 @@
         p.setAttribute('aria-hidden', pos === 'center' ? 'false' : 'true');
       });
       caps.forEach(function (c, i) { c.classList.toggle('is-active', i === a); });
+      dots.forEach(function (b, i) {
+        b.classList.toggle('is-active', i === a);
+        b.setAttribute('aria-selected', i === a ? 'true' : 'false');
+      });
     }
     function running() { return !stopped && inView && !hover && !document.hidden && !reduce.matches; }
     function schedule() {
       clearTimeout(timer);
-      if (running()) timer = setTimeout(function () { go(a + 1); }, INTERVAL);
+      dots.forEach(function (b) { b.classList.remove('run'); });
+      if (!running()) return;
+      void dots[a].offsetWidth; // restart the progress bar
+      dots[a].classList.add('run');
+      timer = setTimeout(function () { go(a + 1); }, INTERVAL);
     }
     function go(i) { a = (i + n) % n; layout(); schedule(); }
     function user(i) { stopped = true; go(i); }
 
+    // Swipe left/right on touch screens; a swipe shouldn't also count as a tap.
+    var sx = null, sy = null, swiped = false;
+    stage.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; swiped = false; });
+    stage.addEventListener('pointercancel', function () { sx = null; });
+    stage.addEventListener('pointerup', function (e) {
+      if (sx === null) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { swiped = true; user(dx < 0 ? a + 1 : a - 1); }
+    });
+
     phones.forEach(function (p, i) {
       p.addEventListener('click', function () {
+        if (swiped) { swiped = false; return; }
         if (p.getAttribute('data-pos') === 'center') {
           var img = $('img', p);
           openLightbox(img.currentSrc || img.src, img.alt, null);
@@ -203,6 +244,7 @@
         if (!raf) raf = requestAnimationFrame(step);
       });
     }
+    label();
     layout();
   });
 
