@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yijiang Luo</title>
-<meta name="description" content="Yijiang Luo: Monash IT (Software Development) student graduating Dec 2026. Cloud and full-stack software developer based in Melbourne.">
+<meta name="description" content="Yijiang Luo: cloud and full-stack software developer in Melbourne. Monash IT (Software Development), graduating Dec 2026.">
 <meta property="og:title" content="Yijiang Luo">
 <meta property="og:description" content="Cloud and full-stack software developer in Melbourne. Monash IT, graduating Dec 2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://johnwes7.github.io/">
-<meta name="theme-color" content="#0d1b24">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1b24'/%3E%3Ccircle cx='9' cy='16' r='3.2' fill='%23f5a524'/%3E%3Ccircle cx='23' cy='16' r='3.2' fill='none' stroke='%23f5a524' stroke-width='2'/%3E%3Cpath d='M12.5 16h7' stroke='%23f5a524' stroke-width='2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a141b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a141b'/%3E%3Ccircle cx='9' cy='16' r='3.2' fill='%23f5a524'/%3E%3Ccircle cx='23' cy='16' r='3.2' fill='none' stroke='%23f5a524' stroke-width='2'/%3E%3Cpath d='M12.5 16h7' stroke='%23f5a524' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Mona+Sans:wdth,wght@75..125,200..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
   // Apply the saved language before first paint so the page doesn't flicker.
@@ -29,26 +29,36 @@
 </script>
 </head>
 <body>
-<a class="skip" href="#projects"><span data-l="en">Skip to projects</span><span data-l="zh">跳到项目</span></a>
+<a class="skip" href="#work"><span data-l="en">Skip to work</span><span data-l="zh">跳到项目</span></a>
+<div class="ambient" aria-hidden="true"></div>
 
-<header class="bar">
+<header class="bar" id="bar">
   <a class="mark" href="#top" aria-label="Yijiang Luo, back to top">yijiang<span>.luo</span></a>
   <nav aria-label="Sections">
-    <a href="#projects"><span data-l="en">Projects</span><span data-l="zh">项目</span></a>
+    <a href="#work"><span data-l="en">Work</span><span data-l="zh">项目</span></a>
     <a href="#skills"><span data-l="en">Skills</span><span data-l="zh">技能</span></a>
     <a href="#education"><span data-l="en">Education</span><span data-l="zh">教育</span></a>
     <a href="#contact"><span data-l="en">Contact</span><span data-l="zh">联系</span></a>
   </nav>
-  <button class="lang" type="button" id="langToggle" aria-label="Switch language / 切换语言">
-    <span class="opt" data-for="en">EN</span><span class="opt" data-for="zh">中</span>
-  </button>
+  <div class="bar-end">
+    <button class="lang" type="button" id="langToggle" aria-label="Switch language / 切换语言">
+      <span class="opt" data-for="en">EN</span><span class="opt" data-for="zh">中</span>
+    </button>
+    <a class="pill-cta" href="mailto:1246215651@qq.com"><span data-l="en">Email me</span><span data-l="zh">发邮件</span></a>
+  </div>
 </header>
 
-<main id="top">
-  <!-- ───────────── Hero ───────────── -->
+<div class="page" id="top">
+<main>
+
+  <!-- ═════════════ Hero ═════════════ -->
   <section class="hero">
     <div class="intro">
-      <h1 class="name">Yijiang Luo<span class="cn" lang="zh-CN">罗熠桨</span></h1>
+      <p class="avail"><span class="dot-live" aria-hidden="true"></span><span data-l="en">Graduating Dec 2026, open to roles in Melbourne</span><span data-l="zh">2026 年 12 月毕业，正在寻找墨尔本的工作机会</span></p>
+      <h1 class="name">
+        <span class="line"><span>Yijiang</span></span>
+        <span class="line"><span>Luo <i class="cn" lang="zh-CN">罗熠桨</i></span></span>
+      </h1>
       <p class="role">
         <span data-l="en">Cloud &amp; full-stack software developer.</span>
         <span data-l="zh">云计算与全栈软件开发。</span>
@@ -57,23 +67,22 @@
         <span data-l="en">I like the problems between code and infrastructure: making a service scale, stay up under load, and cost less.</span>
         <span data-l="zh">我喜欢代码与基础设施之间的问题：让服务能扩展、扛得住负载、成本更低。</span>
       </p>
-      <ul class="facts">
-        <li><span data-l="en">Monash IT, Software Development</span><span data-l="zh">蒙纳士大学 IT，软件开发方向</span></li>
-        <li><span data-l="en">Graduating Dec 2026</span><span data-l="zh">2026 年 12 月毕业</span></li>
-        <li><span data-l="en">Melbourne, VIC</span><span data-l="zh">墨尔本，维多利亚州</span></li>
-      </ul>
       <div class="links">
         <a class="btn primary" href="mailto:1246215651@qq.com"><span data-l="en">Email me</span><span data-l="zh">发邮件</span></a>
         <a class="btn" href="https://github.com/JohnWes7" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/yijiang-luo-924250412" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <ul class="facts">
+        <li><span data-l="en">Monash IT, Software Development</span><span data-l="zh">蒙纳士大学 IT，软件开发方向</span></li>
+        <li><span data-l="en">Melbourne, VIC</span><span data-l="zh">墨尔本，维多利亚州</span></li>
+      </ul>
     </div>
 
     <figure class="pipe-wrap" aria-labelledby="pipeCap">
       <figcaption id="pipeCap" class="pipe-cap">
-        <span class="live" aria-hidden="true"></span>
-        <span data-l="en">Aussie EcoGuard ingest pipeline, which I designed. This is a simulated run.</span>
-        <span data-l="zh">我设计的 Aussie EcoGuard 处理流水线（模拟运行）。</span>
+        <span class="dot-live" aria-hidden="true"></span>
+        <span data-l="en">Aussie EcoGuard ingest pipeline, which I designed. Simulated run.</span>
+        <span data-l="zh">我设计的 Aussie EcoGuard 处理流水线（模拟运行）</span>
       </figcaption>
       <div class="pipe" id="pipe">
         <svg class="wires" aria-hidden="true"></svg>
@@ -86,292 +95,344 @@
         <div class="node" style="--r:2;--c:2;--mr:4;--mc:2"><b>DynamoDB</b><i>AWS</i><small><span data-l="en">indexed by species</span><span data-l="zh">按物种建索引</span></small></div>
         <span class="packet" aria-hidden="true"></span>
         <button class="send" type="button" id="sendBtn" style="--r:2;--c:1;--mr:4;--mc:1">
-          <span data-l="en">Send a test photo</span><span data-l="zh">发送一张测试照片</span>
+          <span data-l="en">Send a test photo</span><span data-l="zh">发送测试照片</span>
         </button>
       </div>
       <pre class="log" id="log" aria-live="polite" aria-label="Pipeline log"></pre>
     </figure>
   </section>
 
-  <!-- ───────────── About ───────────── -->
+  <!-- ═════════════ About ═════════════ -->
   <section class="about" aria-label="About">
-    <p data-l="en">I'm an IT student at Monash University (Software Development) in Melbourne, graduating in December 2026. I build software that runs in the cloud. I've designed a multi-cloud serverless ML platform on AWS and GCP, deployed an autoscaled API on GKE, and shipped full-stack web apps and native iOS and Android apps. I'm looking for software, cloud and IT consulting roles.</p>
-    <p data-l="zh">蒙纳士大学 IT（软件开发方向）学生，现居墨尔本，2026 年 12 月毕业。热衷于构建在云端运行的软件：做过基于 AWS + GCP 的多云 Serverless 机器学习平台、GKE 上自动扩缩容的 API，以及全栈 Web 应用和原生 iOS / 安卓应用。正在寻找软件开发、云计算及 IT 咨询相关岗位。</p>
+    <p data-l="en">I'm an IT student at Monash University (Software Development), graduating in December 2026. I build software that runs in the cloud. I've designed a multi-cloud serverless ML platform on AWS and GCP, deployed an autoscaled API on GKE, and shipped full-stack web apps and native iOS and Android apps. I'm looking for software, cloud and IT consulting roles.</p>
+    <p data-l="zh">蒙纳士大学 IT（软件开发方向）学生，2026 年 12 月毕业。热衷于构建在云端运行的软件：做过基于 AWS + GCP 的多云 Serverless 机器学习平台、GKE 上自动扩缩容的 API，以及全栈 Web 应用和原生 iOS / 安卓应用。正在寻找软件开发、云计算及 IT 咨询相关岗位。</p>
   </section>
 
-  <!-- ───────────── Projects ───────────── -->
-  <section id="projects" class="block">
-    <h2><span class="path">~/</span><span data-l="en">projects</span><span data-l="zh">项目</span></h2>
-    <p class="hint"><span data-l="en">Open a project to see what I built and how.</span><span data-l="zh">点开项目，查看我做了什么、怎么做的。</span></p>
+  <!-- ═════════════ Work ═════════════ -->
+  <section id="work" class="block">
+    <h2 class="section-title"><span class="path">~/</span><span data-l="en">work</span><span data-l="zh">项目</span></h2>
 
-    <div class="projects">
-
-      <!-- steaL -->
-      <details class="proj featured" open>
-        <summary>
-          <span class="p-name">steaL</span>
-          <span class="p-sub"><span data-l="en">Multi-platform game deals app</span><span data-l="zh">多平台游戏折扣应用</span></span>
-          <span class="p-meta">
+    <!-- ── steaL ── -->
+    <article class="feature" id="steal" data-p style="--g1:#3b82f6;--g2:#8dcf4a">
+      <div class="feature-glow" aria-hidden="true"></div>
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="title-row">
+            <img class="app-icon" src="assets/work/steal-icon.svg" alt="" width="64" height="64">
+            <h3>steaL</h3>
+          </div>
+          <p class="meta">
             <span class="status on"><span data-l="en">Ongoing</span><span data-l="zh">持续开发中</span></span>
-            <span><span data-l="en">Solo</span><span data-l="zh">独立开发</span></span>
-            <span><span data-l="en">Aug 2026 – now</span><span data-l="zh">2026.08 – 至今</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">Finds Steam sales, compares prices across stores, and tells you whether to buy now or wait. It started as a SwiftUI iOS app and is growing into a monorepo with an Android app, a shared Kotlin Multiplatform module and a serverless backend.</span>
-            <span data-l="zh">帮你找 Steam 折扣、跨商店比价，判断现在买还是再等。最初是一个 SwiftUI iOS 应用，现在正扩展成一个 monorepo：安卓应用、Kotlin Multiplatform 共享模块和 Serverless 后端。</span>
+            <span><span data-l="en">Solo, Aug 2026 – now</span><span data-l="zh">独立开发，2026.08 – 至今</span></span>
           </p>
-          <div class="tracks">
-            <div class="track">
-              <h3>iOS · SwiftUI</h3>
-              <ul>
-                <li><span data-l="en">Prices, historical lows, trailers and reviews from IsThereAnyDeal and the Steam Store API; each section loads on its own so one slow request doesn't block the page.</span><span data-l="zh">结合 IsThereAnyDeal 和 Steam Store API 展示各商店价格、史低、预告片和评测；页面各区块独立加载，慢请求不阻塞整页。</span></li>
-                <li><span data-l="en">AI buy / wait / skip advice with reasons, working with any OpenAI-compatible provider; the API key stays in the Keychain.</span><span data-l="zh">AI 给出买 / 等 / 跳过的建议和理由，支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。</span></li>
-                <li><span data-l="en">Firebase-synced wishlist with price-drop and release notifications; Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">Firebase 实时同步的愿望单，降价和发售通知；支持 Dynamic Type、VoiceOver、7 个地区、中英文。</span></li>
-              </ul>
-              <p class="stack">SwiftUI · SwiftData · Swift Concurrency · Firebase Auth · Cloud Firestore · TipKit</p>
-            </div>
-            <div class="track">
-              <h3>Android · KMP</h3>
-              <ul>
-                <li><span data-l="en">Native Android app in Jetpack Compose and Material 3, with tab navigation state on Navigation 3.</span><span data-l="zh">用 Jetpack Compose 和 Material 3 写的原生安卓应用，Navigation 3 管理主 Tab 导航状态。</span></li>
-                <li><span data-l="en">Shared Kotlin Multiplatform module wired up with Ktor for networking and Kermit for logging.</span><span data-l="zh">Kotlin Multiplatform 共享模块，接入 Ktor（网络）和 Kermit（日志）。</span></li>
-              </ul>
-              <p class="stack">Kotlin · Jetpack Compose · Material 3 · KMP · Ktor · Gradle</p>
-            </div>
-            <div class="track">
-              <h3><span data-l="en">Sale-events API · AWS</span><span data-l="zh">促销日历后端 · AWS</span></h3>
-              <ul>
-                <li><span data-l="en">Collects sale dates from Steam, Epic, itch.io and GOG. An LLM extracts names and dates; code handles time zones and IDs and checks every result. A bad batch is thrown away and the last good data stays.</span><span data-l="zh">抓取 Steam、Epic、itch.io、GOG 的全站促销日期：LLM 提取活动名和日期，时区、id 由代码处理并逐条校验；校验不过就整份作废，保留上一份数据。</span></li>
-                <li><span data-l="en">GOG has no fixed source, so a tool-calling agent searches the web; each result must quote its source page, and code checks the quote really appears there.</span><span data-l="zh">GOG 没有固定数据来源，用一个会调用工具的 agent 自己搜索网页；每条结果必须带来源和原文引文，代码核对引文确实出现在页面里。</span></li>
-                <li><span data-l="en">API Gateway, Lambda and S3, refreshed weekly by EventBridge Scheduler and managed with Terraform. Only 3 files touch AWS, so it can move to another cloud.</span><span data-l="zh">API Gateway → Lambda → S3，EventBridge Scheduler 每周刷新，Terraform 管理；只有 3 个文件依赖 AWS，方便换云。</span></li>
-              </ul>
-              <p class="stack">Python · OpenAPI 3.1 · Lambda · S3 · EventBridge Scheduler · Terraform · pytest + moto</p>
-            </div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/JohnWes7/steaL" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
+          <p class="pitch"><span data-l="en">Finds Steam sales, compares prices across stores, and tells you whether to buy now or wait.</span><span data-l="zh">帮你找 Steam 折扣、跨商店比价，判断现在买还是再等。</span></p>
+          <p class="desc"><span data-l="en">It started as a SwiftUI iOS app and is growing into a monorepo: a native Android app, a shared Kotlin Multiplatform module and a serverless backend on AWS.</span><span data-l="zh">最初是一个 SwiftUI iOS 应用，现在正扩展成一个 monorepo：原生安卓应用、Kotlin Multiplatform 共享模块，以及部署在 AWS 上的 Serverless 后端。</span></p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/JohnWes7/steaL" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
           </div>
         </div>
-      </details>
 
-      <!-- Agencia Change -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">Agencia Change Engine</span>
-          <span class="p-sub"><span data-l="en">Change-management platform for an industry client</span><span data-l="zh">为行业客户开发的变更管理平台</span></span>
-          <span class="p-meta">
+        <div class="feature-media">
+          <div class="phones" data-phones aria-roledescription="carousel" aria-label="steaL screenshots">
+            <div class="phone-stage">
+              <figure class="phone" data-pos="center"><div class="screen"><img src="assets/work/steal-games.webp" width="660" height="1437" alt="steaL home screen: hot deals with discounts and prices" decoding="async"></div></figure>
+              <figure class="phone" data-pos="right"><div class="screen"><img src="assets/work/steal-detail.webp" width="660" height="1437" alt="steaL game detail: release date, description and the best current offer" loading="lazy" decoding="async"></div></figure>
+              <figure class="phone" data-pos="back"><div class="screen"><img src="assets/work/steal-ai-advice.webp" width="660" height="1437" alt="steaL AI advice sheet recommending to wait, with a score and reasons" loading="lazy" decoding="async"></div></figure>
+              <figure class="phone" data-pos="left"><div class="screen"><img src="assets/work/steal-wishlist.webp" width="660" height="1437" alt="steaL wishlist with filters and price drops" loading="lazy" decoding="async"></div></figure>
+            </div>
+            <div class="car-ui">
+              <button class="car-btn prev" type="button" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <div class="car-caps" aria-live="polite">
+                <p class="cap is-active"><span data-l="en">Hot deals across stores</span><span data-l="zh">跨商店热门折扣</span></p>
+                <p class="cap"><span data-l="en">Prices, history and offers for each game</span><span data-l="zh">每款游戏的价格、史低和各商店报价</span></p>
+                <p class="cap"><span data-l="en">AI says buy, wait or skip, and why</span><span data-l="zh">AI 给出买、等还是跳过，并说明理由</span></p>
+                <p class="cap"><span data-l="en">Wishlist synced with Firebase</span><span data-l="zh">Firebase 实时同步的愿望单</span></p>
+              </div>
+              <button class="car-btn next" type="button" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracks">
+        <div class="track">
+          <h4>iOS <span>SwiftUI</span></h4>
+          <ul>
+            <li><span data-l="en">Prices, historical lows, trailers and reviews from IsThereAnyDeal and the Steam Store API; each section loads on its own so one slow request doesn't block the page.</span><span data-l="zh">结合 IsThereAnyDeal 和 Steam Store API 展示价格、史低、预告片和评测；各区块独立加载，慢请求不阻塞整页。</span></li>
+            <li><span data-l="en">AI advice works with any OpenAI-compatible provider; the API key stays in the Keychain.</span><span data-l="zh">AI 建议支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。</span></li>
+            <li><span data-l="en">Price-drop and release notifications, Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">降价和发售通知；支持 Dynamic Type、VoiceOver、7 个地区、中英文。</span></li>
+          </ul>
+          <p class="stack">SwiftUI / SwiftData / Swift Concurrency / Firebase Auth / Cloud Firestore / TipKit</p>
+        </div>
+        <div class="track">
+          <h4>Android <span>KMP</span></h4>
+          <ul>
+            <li><span data-l="en">Native Android app in Jetpack Compose and Material 3, with tab navigation on Navigation 3.</span><span data-l="zh">用 Jetpack Compose 和 Material 3 写的原生安卓应用，Navigation 3 管理主 Tab 导航。</span></li>
+            <li><span data-l="en">Shared Kotlin Multiplatform module with Ktor for networking and Kermit for logging.</span><span data-l="zh">Kotlin Multiplatform 共享模块，接入 Ktor（网络）和 Kermit（日志）。</span></li>
+          </ul>
+          <p class="stack">Kotlin / Jetpack Compose / Material 3 / KMP / Ktor / Gradle</p>
+        </div>
+        <div class="track">
+          <h4><span data-l="en">Sale-events API</span><span data-l="zh">促销日历后端</span> <span>AWS</span></h4>
+          <ul>
+            <li><span data-l="en">Collects sale dates from Steam, Epic, itch.io and GOG. An LLM extracts names and dates; code handles time zones and IDs and checks every result. A bad batch is thrown away and the last good data stays.</span><span data-l="zh">抓取 Steam、Epic、itch.io、GOG 的促销日期：LLM 提取活动名和日期，时区和 id 由代码处理并逐条校验；校验不过就整份作废，保留上一份数据。</span></li>
+            <li><span data-l="en">GOG has no fixed source, so a tool-calling agent searches the web; every result must quote its source page, and code checks the quote is really there.</span><span data-l="zh">GOG 没有固定数据来源，用会调用工具的 agent 自己搜索；每条结果必须带来源原文，代码核对引文确实出现在页面里。</span></li>
+            <li><span data-l="en">API Gateway, Lambda and S3, refreshed weekly by EventBridge Scheduler, all in Terraform. Only 3 files touch AWS.</span><span data-l="zh">API Gateway → Lambda → S3，EventBridge Scheduler 每周刷新，Terraform 管理；只有 3 个文件依赖 AWS。</span></li>
+          </ul>
+          <p class="stack">Python / OpenAPI 3.1 / Lambda / S3 / EventBridge Scheduler / Terraform / pytest + moto</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Agencia Change ── -->
+    <article class="feature flip" id="agencia" data-p style="--g1:#8b7cf6;--g2:#f5a524">
+      <div class="feature-glow" aria-hidden="true"></div>
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="title-row"><h3>Agencia Change Engine</h3></div>
+          <p class="meta">
             <span class="status on"><span data-l="en">Deploying</span><span data-l="zh">部署中</span></span>
-            <span><span data-l="en">Industry project, Monash</span><span data-l="zh">蒙纳士行业项目</span></span>
-            <span><span data-l="en">2026 S2</span><span data-l="zh">2026 下半年</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">"The Engine" helps organisations plan and manage change. Built with team WANDAY for the client Agencia Change and shown at the Monash Industry Experience Expo 2026. I took the hardest part: live collaborative editing.</span>
-            <span data-l="zh">"The Engine" 帮助组织规划和管理变革。与 WANDAY 团队一起为客户 Agencia Change 开发，在 Monash Industry Experience Expo 2026 上展示。我负责团队里最难的实时协同编辑部分。</span>
+            <span><span data-l="en">Industry project at Monash, 2026 S2</span><span data-l="zh">蒙纳士行业项目，2026 下半年</span></span>
           </p>
-          <ul>
-            <li><span data-l="en">Real-time collaborative editing with Yjs and Quill, plus field-level live sync between planning tools.</span><span data-l="zh">基于 Yjs + Quill 的实时协同编辑，多个规划工具之间字段级实时同步。</span></li>
-            <li><span data-l="en">Token-secured WebSocket relay on a Linux server, run with Node, PM2 and Caddy.</span><span data-l="zh">部署在 Linux 服务器上、带 token 校验的 WebSocket 中继（Node、PM2、Caddy）。</span></li>
-            <li><span data-l="en">Docker support and a GitLab CI pipeline; improved the 8-step onboarding flow and wrote UAT scenarios.</span><span data-l="zh">Docker 支持和 GitLab CI 流水线；改进 8 步引导上手流程，编写 UAT 测试场景。</span></li>
+          <p class="pitch"><span data-l="en">A change-management platform for an industry client. I built the hardest part: live collaborative editing.</span><span data-l="zh">为行业客户开发的变更管理平台。我负责团队里最难的部分：实时协同编辑。</span></p>
+          <ul class="points">
+            <li><span data-l="en">Real-time co-editing with Yjs and Quill, and field-level live sync between planning tools.</span><span data-l="zh">基于 Yjs + Quill 的实时协同编辑，多个规划工具之间字段级实时同步。</span></li>
+            <li><span data-l="en">Token-secured WebSocket relay on a Linux server, run with Node, PM2 and Caddy.</span><span data-l="zh">Linux 服务器上带 token 校验的 WebSocket 中继（Node、PM2、Caddy）。</span></li>
+            <li><span data-l="en">Docker and a GitLab CI pipeline; improved the 8-step onboarding flow and wrote UAT scenarios. Shown at the Monash Industry Experience Expo 2026.</span><span data-l="zh">Docker 和 GitLab CI 流水线；改进 8 步引导流程，编写 UAT 场景。在 Monash Industry Experience Expo 2026 展示。</span></li>
           </ul>
-          <p class="stack">CakePHP 5 · Yjs · Quill · WebSocket · Node.js · PM2 · Caddy · Docker · GitLab CI</p>
-          <p class="p-note"><span data-l="en">Client project; source is private.</span><span data-l="zh">客户项目，源码不公开。</span></p>
+          <p class="stack">CakePHP 5 / Yjs / Quill / WebSocket / Node.js / PM2 / Caddy / Docker / GitLab CI</p>
+          <p class="note"><span data-l="en">Client project, so the source and UI are private.</span><span data-l="zh">客户项目，源码和界面不公开。</span></p>
         </div>
-      </details>
 
-      <!-- Aussie EcoGuard -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">Aussie EcoGuard</span>
-          <span class="p-sub"><span data-l="en">Multi-cloud serverless wildlife detection</span><span data-l="zh">多云 Serverless 野生动物识别平台</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Technical lead, team of 3</span><span data-l="zh">三人团队技术负责人</span></span>
-            <span><span data-l="en">Oct – Nov 2026</span><span data-l="zh">2026.10 – 11</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">Stores camera-trap photos and videos and tags them by the species detected, to track pest animals and find lost pets. The pipeline at the top of this page is this project.</span>
-            <span data-l="zh">存储相机陷阱拍到的照片和视频，并按识别出的物种打标签，用来追踪害兽、寻找走失宠物。页面顶部的流水线图就是这个项目。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Designed the architecture: AWS for web, API, storage and database; GCP Cloud Run for ML inference; single-table DynamoDB. All of it in Terraform with remote state and locking.</span><span data-l="zh">设计整体架构：AWS 负责 Web、API、存储和数据库，GCP Cloud Run 负责 ML 推理，DynamoDB 单表设计；全部资源用 Terraform 管理（remote state + locking）。</span></li>
-            <li><span data-l="en">Compared 10 detection pipelines on a hand-labelled test set and shipped MegaDetector, SpeciesNet and CLIP, with video support.</span><span data-l="zh">在人工标注的测试集上对比 10 条检测流水线，最终部署 MegaDetector → SpeciesNet → CLIP，支持视频。</span></li>
-            <li><span data-l="en">Every API goes through Cognito; AWS calls GCP with machine-to-machine OAuth checked against JWKS, so GCP never holds AWS credentials.</span><span data-l="zh">所有 API 走 Cognito；AWS 调用 GCP 用机器间 OAuth（JWKS 校验），GCP 侧不存 AWS 凭证。</span></li>
-            <li><span data-l="en">Tag search, lost-pet search by species and colour, SNS email alerts and an Amazon Lex chatbot.</span><span data-l="zh">标签搜索、按物种和颜色找走失宠物、SNS 邮件提醒、Amazon Lex 聊天机器人。</span></li>
+        <div class="feature-media">
+          <figure class="coedit" id="coedit">
+            <div class="ce-window" aria-hidden="true">
+              <div class="ce-bar">
+                <span class="ce-title">Change plan</span>
+                <span class="ce-live"><i></i>Live</span>
+                <span class="ce-people"><b class="who-y">Y</b><b class="who-t">T</b></span>
+              </div>
+              <div class="ce-field"><label>Change</label><p class="ce-val"><span class="ce-text"></span></p></div>
+              <div class="ce-field"><label>Who is affected</label><p class="ce-val"><span class="ce-text"></span></p></div>
+              <div class="ce-field"><label>First step</label><p class="ce-val"><span class="ce-text"></span></p></div>
+              <div class="ce-foot"><span class="ce-saved">All changes synced</span></div>
+            </div>
+            <figcaption><span data-l="en">Illustration of two people editing one plan at the same time. The client's real UI isn't shown.</span><span data-l="zh">示意图：两个人同时编辑同一份计划。不是客户的真实界面。</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Aussie EcoGuard ── -->
+    <article class="feature" id="ecoguard" data-p style="--g1:#e8833a;--g2:#3fae6b">
+      <div class="feature-glow" aria-hidden="true"></div>
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="title-row"><h3>Aussie EcoGuard</h3></div>
+          <p class="meta"><span><span data-l="en">Technical lead, team of 3, Oct – Nov 2026</span><span data-l="zh">三人团队技术负责人，2026.10 – 11</span></span></p>
+          <p class="pitch"><span data-l="en">Tags camera-trap photos and videos by species across AWS and GCP, to track pests and find lost pets.</span><span data-l="zh">跨 AWS 和 GCP，按物种给相机陷阱拍到的照片和视频打标签，用来追踪害兽、寻找走失宠物。</span></p>
+          <ul class="points">
+            <li><span data-l="en">Designed the architecture: AWS for web, API, storage and data; GCP Cloud Run for ML inference; everything in Terraform with remote state and locking.</span><span data-l="zh">设计整体架构：AWS 负责 Web、API、存储和数据，GCP Cloud Run 负责 ML 推理；全部资源用 Terraform 管理（remote state + locking）。</span></li>
+            <li><span data-l="en">Compared 10 detection pipelines on a hand-labelled test set, then shipped MegaDetector, SpeciesNet and CLIP, with video support.</span><span data-l="zh">在人工标注的测试集上对比 10 条检测流水线，最终部署 MegaDetector → SpeciesNet → CLIP，支持视频。</span></li>
+            <li><span data-l="en">Cognito on every API; AWS calls GCP with machine-to-machine OAuth checked against JWKS, so GCP never holds AWS credentials.</span><span data-l="zh">所有 API 走 Cognito；AWS 调用 GCP 用机器间 OAuth（JWKS 校验），GCP 侧不存 AWS 凭证。</span></li>
           </ul>
-          <p class="stack">S3 · EventBridge · SQS · Lambda · API Gateway · DynamoDB · Cognito · Cloud Run · Terraform · Python · pytest + moto</p>
-          <div class="p-links">
-            <a href="https://github.com/JohnWes7/aussie-ecoguard-multicloud-platform" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
+          <p class="stack">S3 / EventBridge / SQS / Lambda / DynamoDB / Cognito / Cloud Run / Terraform / Python / pytest + moto</p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/JohnWes7/aussie-ecoguard-multicloud-platform" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
+            <button class="btn ghost" type="button" data-zoom="assets/work/eco-architecture.webp" data-cap-en="Aussie EcoGuard architecture on AWS and GCP" data-cap-zh="Aussie EcoGuard 在 AWS 和 GCP 上的架构"><span data-l="en">View architecture</span><span data-l="zh">查看架构图</span></button>
           </div>
         </div>
-      </details>
 
-      <!-- RespiraCare -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">RespiraCare</span>
-          <span class="p-sub"><span data-l="en">COPD patient-monitoring web app</span><span data-l="zh">COPD 患者远程监测 Web 应用</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Main developer, ~60% of commits</span><span data-l="zh">主力开发，约 60% 提交</span></span>
-            <span><span data-l="en">Mar – May 2026</span><span data-l="zh">2026.03 – 05</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">Patients log vital signs and symptoms; doctors see 7-day trends, follow up on warning signs and manage appointments; admins manage users and content.</span>
-            <span data-l="zh">患者记录生命体征和症状；医生查看 7 天趋势、跟进异常、管理预约；管理员管理用户和内容。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Designed the database and set up the CakePHP 5 project from scratch: authentication, password hashing, Cloudflare Turnstile.</span><span data-l="zh">设计数据库（ERD），从零搭建 CakePHP 5 项目：认证、密码哈希、Cloudflare Turnstile。</span></li>
-            <li><span data-l="en">Role-based access across three portals: role-aware login redirects, a shared role guard, and 404s for records you don't own.</span><span data-l="zh">三个门户的角色访问控制：按角色跳转、共用角色守卫、越权访问返回 404。</span></li>
-            <li><span data-l="en">Appointment booking with automatic HTML email notifications, and password reset by time-limited 6-digit email code.</span><span data-l="zh">预约流程配自动 HTML 邮件通知；邮箱 6 位验证码找回密码，带有效期。</span></li>
-          </ul>
-          <p class="stack">PHP 8.2 · CakePHP 5 · MySQL · Tailwind CSS · Flowbite · ApexCharts · CKEditor 5</p>
-          <div class="p-links">
-            <a href="https://prod.u26s1188.iedev.org/" target="_blank" rel="noopener"><span data-l="en">Live demo</span><span data-l="zh">在线演示</span></a>
+        <div class="feature-media">
+          <div class="stage-web">
+            <div class="gallery" data-gallery>
+              <div class="browser">
+                <div class="browser-bar">
+                  <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <div class="g-caps" aria-live="polite">
+                    <p class="cap is-active"><span data-l="en">Search the library by species</span><span data-l="zh">按物种搜索媒体库</span></p>
+                    <p class="cap"><span data-l="en">Chatbot that finds sightings</span><span data-l="zh">帮你找目击记录的聊天机器人</span></p>
+                    <p class="cap"><span data-l="en">Find a lost pet by species and colour</span><span data-l="zh">按物种和颜色找走失宠物</span></p>
+                    <p class="cap"><span data-l="en">Email alerts for chosen species</span><span data-l="zh">按物种订阅邮件提醒</span></p>
+                  </div>
+                  <div class="g-dots"></div>
+                </div>
+                <div class="view">
+                  <img class="slide is-active" src="assets/work/eco-search-fox.webp" width="1280" height="800" alt="EcoGuard library search for fox, returning tagged photos and a video" loading="lazy" decoding="async" data-cap-zh="EcoGuard 媒体库搜索 fox，返回带标签的照片和视频">
+                  <img class="slide" src="assets/work/eco-chatbot-lost-pet.webp" width="1280" height="800" alt="EcoGuard assistant finding sightings of an orange cat" loading="lazy" decoding="async" data-cap-zh="EcoGuard 助手查找橘猫的目击记录">
+                  <img class="slide" src="assets/work/eco-lost-pet.webp" width="1280" height="800" alt="Lost-pet search by species and colour, with matching sightings" loading="lazy" decoding="async" data-cap-zh="按物种和颜色查找走失宠物">
+                  <img class="slide" src="assets/work/eco-notifications.webp" width="1280" height="800" alt="Email notification settings by species" loading="lazy" decoding="async" data-cap-zh="按物种订阅邮件提醒">
+                </div>
+              </div>
+            </div>
+            <button class="float-card" type="button" data-zoom="assets/work/eco-architecture.webp" data-cap-en="Aussie EcoGuard architecture on AWS and GCP" data-cap-zh="Aussie EcoGuard 在 AWS 和 GCP 上的架构">
+              <img src="assets/work/eco-architecture.webp" width="1779" height="1362" alt="" loading="lazy" decoding="async">
+              <span><span data-l="en">Architecture</span><span data-l="zh">架构图</span></span>
+            </button>
           </div>
         </div>
-      </details>
+      </div>
+    </article>
 
-      <!-- SmartPark -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">SmartPark</span>
-          <span class="p-sub"><span data-l="en">Scalable parking-detection API on GCP</span><span data-l="zh">GCP 上可扩展的停车位检测 API</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Solo</span><span data-l="zh">独立完成</span></span>
-            <span><span data-l="en">2026 S2</span><span data-l="zh">2026 下半年</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">A FastAPI + YOLO service on GKE that finds car parks with free spaces, scaling from 1 to 8 pods on CPU load. A separate camera simulator runs on Cloud Run.</span>
-            <span data-l="zh">部署在 GKE 上的 FastAPI + YOLO 服务，找出有空位的停车场，按 CPU 负载在 1–8 个 Pod 之间自动扩缩容；另有一个摄像头模拟服务跑在 Cloud Run 上。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Model weights live in Cloud Storage and load at startup through an initContainer: switching models is a ConfigMap change, not an image rebuild.</span><span data-l="zh">模型权重放在 Cloud Storage，启动时由 initContainer 下载：换模型只要改 ConfigMap，不用重新构建镜像。</span></li>
-            <li><span data-l="en">Two-level cache (in-pod TTL plus shared Redis) that serves stale data while refreshing, with a cross-pod Redis lock so only one pod re-runs inference.</span><span data-l="zh">两级缓存（Pod 内 TTL + 共享 Redis），过期前先返回旧值、后台刷新；跨 Pod 的 Redis 锁保证只有一个 Pod 重新推理。</span></li>
-            <li><span data-l="en">YOLO runs in a thread pool so it never blocks the event loop; load-tested with Locust at 1, 2, 4 and 8 pods.</span><span data-l="zh">YOLO 放进线程池执行，不阻塞事件循环；用 Locust 在 1 / 2 / 4 / 8 个副本上压测并写了基准报告。</span></li>
+    <!-- ── SmartPark ── -->
+    <article class="feature flip" id="smartpark" data-p style="--g1:#22b8cf;--g2:#3b82f6">
+      <div class="feature-glow" aria-hidden="true"></div>
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="title-row"><h3>SmartPark</h3></div>
+          <p class="meta"><span><span data-l="en">Solo, 2026 S2</span><span data-l="zh">独立完成，2026 下半年</span></span></p>
+          <p class="pitch"><span data-l="en">A FastAPI + YOLO parking-detection API on GKE that scales from 1 to 8 pods with load.</span><span data-l="zh">部署在 GKE 上的 FastAPI + YOLO 停车位检测 API，按负载在 1–8 个 Pod 之间自动扩缩容。</span></p>
+          <ul class="points">
+            <li><span data-l="en">Model weights load from Cloud Storage at startup through an initContainer, so switching models is a ConfigMap change, not an image rebuild.</span><span data-l="zh">模型权重启动时由 initContainer 从 Cloud Storage 下载：换模型只改 ConfigMap，不用重新构建镜像。</span></li>
+            <li><span data-l="en">Two-level cache (in-pod TTL plus shared Redis) that serves stale data while refreshing, with a cross-pod lock so only one pod re-runs inference.</span><span data-l="zh">两级缓存（Pod 内 TTL + 共享 Redis），过期前先返回旧值、后台刷新；跨 Pod 的锁保证只有一个 Pod 重新推理。</span></li>
+            <li><span data-l="en">YOLO runs in a thread pool so it never blocks the event loop; load-tested with Locust at 1, 2, 4 and 8 pods.</span><span data-l="zh">YOLO 放进线程池，不阻塞事件循环；用 Locust 在 1 / 2 / 4 / 8 个副本上压测。</span></li>
           </ul>
-          <p class="stack">Python · FastAPI · YOLO · GKE · HPA · Cloud Run · Cloud Storage · Redis · Firestore · Docker · Locust</p>
-          <div class="p-links">
-            <a href="https://github.com/JohnWes7/smartpark-api" target="_blank" rel="noopener"><span data-l="en">API source</span><span data-l="zh">主服务源码</span></a>
-            <a href="https://github.com/JohnWes7/takephoto-api" target="_blank" rel="noopener"><span data-l="en">Camera simulator source</span><span data-l="zh">摄像头模拟服务源码</span></a>
+          <p class="stack">Python / FastAPI / YOLO / GKE / HPA / Cloud Run / Cloud Storage / Redis / Firestore / Locust</p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/JohnWes7/smartpark-api" target="_blank" rel="noopener"><span data-l="en">API source</span><span data-l="zh">主服务源码</span></a>
+            <a class="btn ghost" href="https://github.com/JohnWes7/takephoto-api" target="_blank" rel="noopener"><span data-l="en">Camera simulator</span><span data-l="zh">摄像头模拟服务</span></a>
           </div>
         </div>
-      </details>
 
-      <!-- Vega-Lite -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">Australia Energy &amp; CO₂</span>
-          <span class="p-sub"><span data-l="en">Interactive Vega-Lite data story</span><span data-l="zh">Vega-Lite 交互式数据可视化</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Solo</span><span data-l="zh">独立完成</span></span>
-            <span><span data-l="en">Sep – Oct 2025</span><span data-l="zh">2025.09 – 10</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">How Australia's energy mix and emissions changed, built from cleaned and merged official data.</span>
-            <span data-l="zh">用清洗合并后的官方数据，讲述澳大利亚能源结构和碳排放的变化。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Renewable-share choropleth with a year slider (2012–2023) and a parallel-coordinates view showing coal as the main driver of emissions.</span><span data-l="zh">带年份滑块（2012–2023）的可再生能源占比分级地图；平行坐标图揭示煤是排放主因。</span></li>
-            <li><span data-l="en">Generation-mix area chart from 1989, small multiples and sector emissions, with one colour system, interactive legends, responsive layout and light and dark modes.</span><span data-l="zh">1989 年以来的发电结构面积图、小多图、分行业排放；统一配色、交互图例，响应式并支持深浅色。</span></li>
-          </ul>
-          <p class="stack">Vega-Lite · JavaScript · pandas · Jupyter · Bootstrap</p>
-          <div class="p-links">
+        <div class="feature-media">
+          <div class="stage-web">
+            <div class="gallery" data-gallery>
+              <div class="browser paper">
+                <div class="browser-bar">
+                  <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <div class="g-caps" aria-live="polite">
+                    <p class="cap is-active"><span data-l="en">Load test: max users by pod count</span><span data-l="zh">压测：不同 Pod 数的最大用户数</span></p>
+                    <p class="cap"><span data-l="en">Load test: response time as users grow</span><span data-l="zh">压测：用户增加时的响应时间</span></p>
+                  </div>
+                  <div class="g-dots"></div>
+                </div>
+                <div class="view">
+                  <img class="slide is-active" src="assets/work/smartpark-max-supported-users-by-pod.webp" width="1422" height="895" alt="Chart: maximum supported users by pod count, from Locust load tests" loading="lazy" decoding="async" data-cap-zh="图表：不同 Pod 数下的最大支持用户数（Locust 压测）">
+                  <img class="slide" src="assets/work/smartpark-avg-response-time-by-pod.webp" width="1422" height="895" alt="Chart: average response time against test users for 1, 2, 4 and 8 pods" loading="lazy" decoding="async" data-cap-zh="图表：1 / 2 / 4 / 8 个 Pod 下平均响应时间随用户数的变化">
+                </div>
+              </div>
+            </div>
+            <button class="float-card" type="button" data-zoom="assets/work/smartpark-cache-architecture.webp" data-cap-en="SmartPark two-level cache lookup inside a pod" data-cap-zh="SmartPark Pod 内的两级缓存查找流程">
+              <img src="assets/work/smartpark-cache-architecture.webp" width="1800" height="1201" alt="" loading="lazy" decoding="async">
+              <span><span data-l="en">Cache design</span><span data-l="zh">缓存设计</span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── More work ── -->
+    <h3 class="more-title"><span data-l="en">More work</span><span data-l="zh">更多项目</span></h3>
+    <div class="cards">
+
+      <article class="card" style="--g1:#3d6fd1">
+        <button class="card-media" type="button" data-zoom="assets/work/respiracare-home.webp" data-cap-en="RespiraCare home page" data-cap-zh="RespiraCare 首页">
+          <img src="assets/work/respiracare-home.webp" width="1280" height="800" alt="RespiraCare home page: your dedicated partner in COPD management" loading="lazy" decoding="async">
+        </button>
+        <div class="card-body">
+          <h4>RespiraCare</h4>
+          <p class="meta"><span><span data-l="en">Main developer, ~60% of commits</span><span data-l="zh">主力开发，约 60% 提交</span></span><span><span data-l="en">Mar – May 2026</span><span data-l="zh">2026.03 – 05</span></span></p>
+          <p><span data-l="en">COPD patient monitoring: patients log vitals and symptoms, doctors see 7-day trends and manage appointments.</span><span data-l="zh">COPD 患者远程监测：患者记录生命体征和症状，医生查看 7 天趋势、管理预约。</span></p>
+          <details>
+            <summary><span data-l="en">What I built</span><span data-l="zh">我做了什么</span></summary>
+            <ul>
+              <li><span data-l="en">Designed the database and set up the CakePHP 5 project: authentication, password hashing, Cloudflare Turnstile.</span><span data-l="zh">设计数据库，从零搭建 CakePHP 5 项目：认证、密码哈希、Cloudflare Turnstile。</span></li>
+              <li><span data-l="en">Role-based access across three portals, with 404s for records you don't own.</span><span data-l="zh">三个门户的角色访问控制，越权访问返回 404。</span></li>
+              <li><span data-l="en">Appointment booking with HTML email notifications; password reset by time-limited 6-digit code.</span><span data-l="zh">预约流程配 HTML 邮件通知；有时效的 6 位验证码找回密码。</span></li>
+            </ul>
+          </details>
+          <p class="stack">PHP 8.2 / CakePHP 5 / MySQL / Tailwind CSS / ApexCharts</p>
+          <div class="card-links"><a href="https://prod.u26s1188.iedev.org/" target="_blank" rel="noopener"><span data-l="en">Live demo</span><span data-l="zh">在线演示</span></a></div>
+        </div>
+      </article>
+
+      <article class="card" style="--g1:#f39c12">
+        <div class="card-media gallery mini" data-gallery>
+          <div class="view">
+            <img class="slide is-active" src="assets/work/energy-structure.webp" width="1280" height="800" alt="Stacked area chart of Australia's electricity generation by energy type, 1989 to 2023" loading="lazy" decoding="async" data-cap-zh="澳大利亚 1989–2023 年分能源类型发电量堆叠面积图">
+            <img class="slide" src="assets/work/energy-states.webp" width="1280" height="800" alt="Small multiples of electricity generation by state" loading="lazy" decoding="async" data-cap-zh="各州发电结构小多图">
+            <img class="slide" src="assets/work/energy-co2.webp" width="1280" height="800" alt="Parallel coordinates and emissions by sector" loading="lazy" decoding="async" data-cap-zh="平行坐标图与分行业排放">
+          </div>
+          <div class="g-dots"></div>
+        </div>
+        <div class="card-body">
+          <h4>Australia Energy &amp; CO₂</h4>
+          <p class="meta"><span><span data-l="en">Solo</span><span data-l="zh">独立完成</span></span><span><span data-l="en">Sep – Oct 2025</span><span data-l="zh">2025.09 – 10</span></span></p>
+          <p><span data-l="en">An interactive Vega-Lite story of how Australia's energy mix and emissions changed, from cleaned and merged official data.</span><span data-l="zh">用清洗合并后的官方数据，以 Vega-Lite 交互图表讲述澳大利亚能源结构和碳排放的变化。</span></p>
+          <details>
+            <summary><span data-l="en">What I built</span><span data-l="zh">我做了什么</span></summary>
+            <ul>
+              <li><span data-l="en">Renewable-share map with a year slider (2012–2023) and a parallel-coordinates view showing coal as the main driver of emissions.</span><span data-l="zh">带年份滑块（2012–2023）的可再生能源占比地图；平行坐标图揭示煤是排放主因。</span></li>
+              <li><span data-l="en">Generation mix since 1989, small multiples by state, one colour system, interactive legends, light and dark modes.</span><span data-l="zh">1989 年以来的发电结构、各州小多图；统一配色、交互图例，支持深浅色。</span></li>
+            </ul>
+          </details>
+          <p class="stack">Vega-Lite / JavaScript / pandas / Jupyter</p>
+          <div class="card-links">
             <a href="https://johnwes7.github.io/3179-a2-australia-green-energy/" target="_blank" rel="noopener"><span data-l="en">Live demo</span><span data-l="zh">在线演示</span></a>
-            <a href="https://github.com/JohnWes7/3179-a2-australia-green-energy" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
+            <a href="https://github.com/JohnWes7/3179-a2-australia-green-energy" target="_blank" rel="noopener"><span data-l="en">Source</span><span data-l="zh">源码</span></a>
           </div>
         </div>
-      </details>
+      </article>
 
-      <!-- Tableau -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">Traveling to Australia</span>
-          <span class="p-sub"><span data-l="en">Interactive Tableau dashboard</span><span data-l="zh">Tableau 交互式仪表板</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Solo</span><span data-l="zh">独立完成</span></span>
-            <span><span data-l="en">Jul – Sep 2025</span><span data-l="zh">2025.07 – 09</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">Combines tourism and weather data so travellers can compare Australian cities month by month.</span>
-            <span data-l="zh">合并旅游和天气两个公开数据集，方便按月份对比澳大利亚各城市。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Monthly temperature, humidity and rainy days, plus a compass-style wind chart built with LOD expressions and SIN/COS.</span><span data-l="zh">月度气温、湿度、雨天数；用 LOD 表达式和 SIN/COS 做罗盘式风向图。</span></li>
-            <li><span data-l="en">Linked legends and tooltips, weather for about 49 locations, and missing data marked rather than hidden.</span><span data-l="zh">图例联动和 tooltip，可切换约 49 个地点的天气；缺失数据明确标注而不是隐藏。</span></li>
-          </ul>
-          <p class="stack">Tableau Public · calculated fields · LOD expressions</p>
-          <div class="p-links">
-            <a href="https://public.tableau.com/app/profile/yj.l6165/viz/TravelingtoAustraliacity/dashboard" target="_blank" rel="noopener"><span data-l="en">Open dashboard</span><span data-l="zh">打开仪表板</span></a>
-          </div>
+      <article class="card" style="--g1:#e05a5a">
+        <button class="card-media" type="button" data-zoom="assets/work/tableau-sydney.webp" data-cap-en="Traveling to Australia dashboard: Sydney's weather and visitors" data-cap-zh="Traveling to Australia 仪表板：悉尼的天气和游客">
+          <img src="assets/work/tableau-sydney.webp" width="1280" height="800" alt="Tableau dashboard: Sydney monthly temperature and quarterly overnight trips" loading="lazy" decoding="async">
+        </button>
+        <div class="card-body">
+          <h4>Traveling to Australia</h4>
+          <p class="meta"><span><span data-l="en">Solo</span><span data-l="zh">独立完成</span></span><span><span data-l="en">Jul – Sep 2025</span><span data-l="zh">2025.07 – 09</span></span></p>
+          <p><span data-l="en">A Tableau dashboard that combines tourism and weather data so travellers can compare cities month by month.</span><span data-l="zh">合并旅游和天气数据的 Tableau 仪表板，方便按月份对比澳大利亚各城市。</span></p>
+          <details>
+            <summary><span data-l="en">What I built</span><span data-l="zh">我做了什么</span></summary>
+            <ul>
+              <li><span data-l="en">Monthly temperature, humidity and rainy days, plus a compass-style wind chart built with LOD expressions and SIN/COS.</span><span data-l="zh">月度气温、湿度、雨天数；用 LOD 表达式和 SIN/COS 做罗盘式风向图。</span></li>
+              <li><span data-l="en">Linked legends and tooltips, weather for about 49 locations, missing data marked rather than hidden.</span><span data-l="zh">图例联动和 tooltip，约 49 个地点的天气；缺失数据明确标注。</span></li>
+            </ul>
+          </details>
+          <p class="stack">Tableau Public / calculated fields / LOD expressions</p>
+          <div class="card-links"><a href="https://public.tableau.com/app/profile/yj.l6165/viz/TravelingtoAustraliacity/dashboard" target="_blank" rel="noopener"><span data-l="en">Open dashboard</span><span data-l="zh">打开仪表板</span></a></div>
         </div>
-      </details>
+      </article>
 
-      <!-- FallEndless -->
-      <details class="proj">
-        <summary>
-          <span class="p-name">FallEndless</span>
-          <span class="p-sub"><span data-l="en">Survival game for Ludum Dare 48</span><span data-l="zh">Ludum Dare 48 生存游戏</span></span>
-          <span class="p-meta">
-            <span><span data-l="en">Team of 2, built in 3 days</span><span data-l="zh">两人团队，3 天完成</span></span>
-            <span><span data-l="en">Apr 2021</span><span data-l="zh">2021.04</span></span>
-          </span>
-        </summary>
-        <div class="p-body">
-          <p class="p-desc">
-            <span data-l="en">Each day you pick how to respond to an event, then manage your time and stats to survive as many days as you can. Built from scratch in Unity in 3 days, before AI coding tools.</span>
-            <span data-l="zh">每天做事件选择，管理时间和各项能力值，尽量活得更久、拿更高分。在没有 AI 编程工具的年代，用 Unity 3 天从零做完。</span>
-          </p>
-          <ul>
-            <li><span data-l="en">Event, item and ending systems.</span><span data-l="zh">事件系统、物品系统和结局系统。</span></li>
-          </ul>
-          <p class="stack">Unity · C#</p>
-          <div class="p-links">
-            <a href="https://github.com/JohnWes7/LudumDare48" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
-          </div>
+      <article class="card" style="--g1:#7c6cf0">
+        <div class="card-media cover" aria-hidden="true">
+          <div class="fall"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="cover-title">FallEndless</p>
+          <p class="cover-sub">Ludum Dare 48</p>
         </div>
-      </details>
-
+        <div class="card-body">
+          <h4>FallEndless</h4>
+          <p class="meta"><span><span data-l="en">Team of 2, built in 3 days</span><span data-l="zh">两人团队，3 天完成</span></span><span><span data-l="en">Apr 2021</span><span data-l="zh">2021.04</span></span></p>
+          <p><span data-l="en">A survival game for Ludum Dare 48: pick how to respond to each day's event and manage your time and stats to last as long as you can. Built in Unity before AI coding tools.</span><span data-l="zh">Ludum Dare 48 生存游戏：每天对事件做出选择，管理时间和能力值，尽量活得更久。在没有 AI 编程工具的年代用 Unity 完成。</span></p>
+          <p class="stack">Unity / C# / event, item and ending systems</p>
+          <div class="card-links"><a href="https://github.com/JohnWes7/LudumDare48" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a></div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ───────────── Skills ───────────── -->
+  <!-- ═════════════ Skills ═════════════ -->
   <section id="skills" class="block">
-    <h2><span class="path">~/</span><span data-l="en">skills</span><span data-l="zh">技能</span></h2>
-    <dl class="skills">
-      <div><dt><span data-l="en">Cloud &amp; infrastructure</span><span data-l="zh">云与基础设施</span></dt>
-        <dd><span class="k">AWS</span> Lambda, API Gateway, S3, DynamoDB, SQS, EventBridge, Cognito</dd>
-        <dd><span class="k">GCP</span> GKE, Cloud Run, Cloud Storage, Firestore</dd>
-        <dd>Terraform, Docker, Kubernetes, Serverless</dd></div>
-      <div><dt><span data-l="en">Languages</span><span data-l="zh">编程语言</span></dt>
-        <dd>Python, Swift, Kotlin, C#, PHP, JavaScript, HTML/CSS</dd></div>
-      <div><dt><span data-l="en">Mobile</span><span data-l="zh">移动端</span></dt>
-        <dd>SwiftUI, SwiftData, Jetpack Compose, Material 3, Navigation 3, Kotlin Multiplatform, Ktor</dd></div>
-      <div><dt><span data-l="en">Frameworks &amp; libraries</span><span data-l="zh">框架与库</span></dt>
-        <dd>FastAPI, CakePHP, Node.js, Unity, Tailwind CSS, Bootstrap, pandas, pytest, Vega-Lite</dd></div>
-      <div><dt><span data-l="en">Data</span><span data-l="zh">数据库</span></dt>
-        <dd>MySQL, DynamoDB, Cloud Firestore, Redis</dd></div>
-      <div><dt><span data-l="en">Tools</span><span data-l="zh">工具与平台</span></dt>
-        <dd>Git, GitHub, GitLab CI, Gradle, Xcode, Tableau, Jupyter</dd></div>
-      <div><dt><span data-l="en">Also</span><span data-l="zh">其他</span></dt>
-        <dd><span data-l="en">REST and OpenAPI design, LLM apps (structured extraction, tool-calling agents), data cleaning and visualisation, game development</span><span data-l="zh">REST / OpenAPI 设计，LLM 应用（结构化提取、调用工具的 agent），数据清洗与可视化，游戏开发</span></dd></div>
-    </dl>
+    <h2 class="section-title"><span class="path">~/</span><span data-l="en">skills</span><span data-l="zh">技能</span></h2>
+    <div class="skills">
+      <div class="skill wide">
+        <h3><span data-l="en">Cloud &amp; infrastructure</span><span data-l="zh">云与基础设施</span></h3>
+        <p><b>AWS</b> Lambda, API Gateway, S3, DynamoDB, SQS, EventBridge, Cognito</p>
+        <p><b>GCP</b> GKE, Cloud Run, Cloud Storage, Firestore</p>
+        <p>Terraform, Docker, Kubernetes, Serverless</p>
+      </div>
+      <div class="skill"><h3><span data-l="en">Languages</span><span data-l="zh">编程语言</span></h3><p>Python, Swift, Kotlin, C#, PHP, JavaScript, HTML/CSS</p></div>
+      <div class="skill"><h3><span data-l="en">Mobile</span><span data-l="zh">移动端</span></h3><p>SwiftUI, SwiftData, Jetpack Compose, Material 3, Kotlin Multiplatform, Ktor</p></div>
+      <div class="skill"><h3><span data-l="en">Frameworks</span><span data-l="zh">框架与库</span></h3><p>FastAPI, CakePHP, Node.js, Unity, Tailwind CSS, pandas, pytest, Vega-Lite</p></div>
+      <div class="skill"><h3><span data-l="en">Data</span><span data-l="zh">数据库</span></h3><p>MySQL, DynamoDB, Cloud Firestore, Redis</p></div>
+      <div class="skill"><h3><span data-l="en">Tools</span><span data-l="zh">工具与平台</span></h3><p>Git, GitHub, GitLab CI, Gradle, Xcode, Tableau, Jupyter</p></div>
+      <div class="skill"><h3><span data-l="en">Also</span><span data-l="zh">其他</span></h3><p><span data-l="en">REST and OpenAPI design, LLM apps (structured extraction, tool-calling agents), data visualisation, game development</span><span data-l="zh">REST / OpenAPI 设计，LLM 应用（结构化提取、调用工具的 agent），数据可视化，游戏开发</span></p></div>
+    </div>
   </section>
 
-  <!-- ───────────── Education ───────────── -->
+  <!-- ═════════════ Education ═════════════ -->
   <section id="education" class="block">
-    <h2><span class="path">~/</span><span data-l="en">education</span><span data-l="zh">教育</span></h2>
+    <h2 class="section-title"><span class="path">~/</span><span data-l="en">education</span><span data-l="zh">教育</span></h2>
 
     <article class="edu">
       <header>
@@ -380,8 +441,9 @@
         <p class="when"><span data-l="en">2025 – Dec 2026, Melbourne</span><span data-l="zh">2025 – 2026.12，墨尔本</span></p>
       </header>
       <div class="score">
-        <p class="big">WAM 76.9 <span>GPA 3.3 / 4.0</span></p>
-        <p><span data-l="en">Every graded unit at Distinction or above, all core IT (FIT) units.</span><span data-l="zh">已修课程全部为 IT 专业课，且全部达到 Distinction 及以上。</span></p>
+        <p class="big">WAM 76.9</p>
+        <p class="gpa">GPA 3.3 / 4.0</p>
+        <p class="score-note"><span data-l="en">Every graded unit at Distinction or above, all core IT (FIT) units.</span><span data-l="zh">已修课程全部为 IT 专业课，且全部达到 Distinction 及以上。</span></p>
       </div>
 
       <table class="units">
@@ -416,10 +478,10 @@
     </article>
   </section>
 
-  <!-- ───────────── Contact ───────────── -->
+  <!-- ═════════════ Contact ═════════════ -->
   <section id="contact" class="block contact">
-    <h2><span class="path">~/</span><span data-l="en">contact</span><span data-l="zh">联系</span></h2>
-    <p class="contact-lede"><span data-l="en">Open to software, cloud and IT consulting roles in Melbourne, hybrid or remote.</span><span data-l="zh">正在寻找墨尔本的软件开发、云计算及 IT 咨询岗位，接受现场、混合或远程办公。</span></p>
+    <h2 class="section-title"><span class="path">~/</span><span data-l="en">contact</span><span data-l="zh">联系</span></h2>
+    <p class="contact-lede"><span data-l="en">Open to software, cloud and IT consulting roles in Melbourne, on-site, hybrid or remote.</span><span data-l="zh">正在寻找墨尔本的软件开发、云计算及 IT 咨询岗位，接受现场、混合或远程办公。</span></p>
     <a class="mail" href="mailto:1246215651@qq.com">1246215651@qq.com</a>
     <dl class="contact-facts">
       <div><dt><span data-l="en">Work rights</span><span data-l="zh">工作权利</span></dt><dd><span data-l="en">Will apply for a post-study work visa after graduating.</span><span data-l="zh">毕业后将申请毕业生工作签证。</span></dd></div>
@@ -441,6 +503,13 @@
     </p>
   </div>
 </footer>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
 
 <script src="main.js"></script>
 </body>
