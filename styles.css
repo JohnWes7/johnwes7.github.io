@@ -112,6 +112,7 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 .btn.primary { background: var(--amber); border-color: var(--amber); color: #1a1205; font-weight: 650; }
 .btn.primary:hover { background: var(--amber-2); border-color: var(--amber-2); }
 .btn.ghost { background: transparent; }
+.btn .ico { width: 18px; height: 18px; flex: none; fill: currentColor; margin-left: -2px; }
 
 .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; animation: pulse 2.4s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(79, 209, 161, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(79, 209, 161, 0); } }
