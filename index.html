@@ -159,32 +159,67 @@
         </div>
       </div>
 
-      <div class="tracks">
-        <div class="track">
-          <h4>iOS <span>SwiftUI</span></h4>
-          <ul>
-            <li><span data-l="en">Prices, historical lows, trailers and reviews from IsThereAnyDeal and the Steam Store API; each section loads on its own so one slow request doesn't block the page.</span><span data-l="zh">结合 IsThereAnyDeal 和 Steam Store API 展示价格、史低、预告片和评测；各区块独立加载，慢请求不阻塞整页。</span></li>
-            <li><span data-l="en">AI advice works with any OpenAI-compatible provider; the API key stays in the Keychain.</span><span data-l="zh">AI 建议支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。</span></li>
-            <li><span data-l="en">Price-drop and release notifications, Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">降价和发售通知；支持 Dynamic Type、VoiceOver、7 个地区、中英文。</span></li>
-          </ul>
-          <p class="stack">SwiftUI / SwiftData / Swift Concurrency / Firebase Auth / Cloud Firestore / TipKit</p>
+      <div class="arch" role="group" aria-label="steaL architecture">
+        <div class="arch-head">
+          <p><span data-l="en">How it fits together: native UI on each platform, one shared core underneath.</span><span data-l="zh">整体架构：各平台原生界面，底下共用一个核心。</span></p>
+          <p class="legend">
+            <span><i class="built"></i><span data-l="en">Built</span><span data-l="zh">已完成</span></span>
+            <span><i class="wip"></i><span data-l="en">In progress</span><span data-l="zh">开发中</span></span>
+            <span><i class="next"></i><span data-l="en">Next</span><span data-l="zh">下一步</span></span>
+          </p>
         </div>
-        <div class="track">
-          <h4>Android <span>KMP</span></h4>
-          <ul>
-            <li><span data-l="en">Native Android app in Jetpack Compose and Material 3, with tab navigation on Navigation 3.</span><span data-l="zh">用 Jetpack Compose 和 Material 3 写的原生安卓应用，Navigation 3 管理主 Tab 导航。</span></li>
-            <li><span data-l="en">Shared Kotlin Multiplatform module with Ktor for networking and Kermit for logging.</span><span data-l="zh">Kotlin Multiplatform 共享模块，接入 Ktor（网络）和 Kermit（日志）。</span></li>
-          </ul>
-          <p class="stack">Kotlin / Jetpack Compose / Material 3 / KMP / Ktor / Gradle</p>
+
+        <div class="arch-row two">
+          <section class="layer built">
+            <h4>iOS <span class="tag">SwiftUI, Liquid Glass</span><span class="state built"><span data-l="en">Built</span><span data-l="zh">已完成</span></span></h4>
+            <ul>
+              <li><span data-l="en">Prices, historical lows, trailers and reviews from IsThereAnyDeal and the Steam Store API; each section loads on its own so one slow request doesn't block the page.</span><span data-l="zh">结合 IsThereAnyDeal 和 Steam Store API 展示价格、史低、预告片和评测；各区块独立加载，慢请求不阻塞整页。</span></li>
+              <li><span data-l="en">AI advice works with any OpenAI-compatible provider; the API key stays in the Keychain.</span><span data-l="zh">AI 建议支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。</span></li>
+              <li><span data-l="en">Price-drop and release notifications, Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">降价和发售通知；支持 Dynamic Type、VoiceOver、7 个地区、中英文。</span></li>
+            </ul>
+            <p class="stack">SwiftUI / SwiftData / Swift Concurrency / TipKit / SwiftLint</p>
+          </section>
+          <section class="layer wip">
+            <h4>Android <span class="tag">Jetpack Compose, Material 3</span><span class="state wip"><span data-l="en">In progress</span><span data-l="zh">开发中</span></span></h4>
+            <ul>
+              <li><span data-l="en">The iOS features, rebuilt natively in Jetpack Compose and Material 3 rather than shared UI, so each platform looks and feels like itself.</span><span data-l="zh">把 iOS 上的功能用 Jetpack Compose 和 Material 3 原生重做，而不是共用界面，让每个平台都保持自己的观感。</span></li>
+              <li><span data-l="en">First screens and theme are in place, with tab navigation on Navigation 3.</span><span data-l="zh">初始界面和主题已完成，Navigation 3 管理 Tab 导航。</span></li>
+            </ul>
+            <p class="stack">Kotlin / Jetpack Compose / Material 3 / Navigation 3 / Gradle</p>
+          </section>
         </div>
-        <div class="track">
-          <h4><span data-l="en">Sale-events API</span><span data-l="zh">促销日历后端</span> <span>AWS</span></h4>
+
+        <div class="arch-link" aria-hidden="true"><i></i><i></i></div>
+
+        <section class="layer next">
+          <h4><span data-l="en">Shared core</span><span data-l="zh">共享核心</span> <span class="tag">Kotlin Multiplatform</span><span class="state next"><span data-l="en">Next</span><span data-l="zh">下一步</span></span></h4>
           <ul>
-            <li><span data-l="en">Collects sale dates from Steam, Epic, itch.io and GOG. An LLM extracts names and dates; code handles time zones and IDs and checks every result. A bad batch is thrown away and the last good data stays.</span><span data-l="zh">抓取 Steam、Epic、itch.io、GOG 的促销日期：LLM 提取活动名和日期，时区和 id 由代码处理并逐条校验；校验不过就整份作废，保留上一份数据。</span></li>
-            <li><span data-l="en">GOG has no fixed source, so a tool-calling agent searches the web; every result must quote its source page, and code checks the quote is really there.</span><span data-l="zh">GOG 没有固定数据来源，用会调用工具的 agent 自己搜索；每条结果必须带来源原文，代码核对引文确实出现在页面里。</span></li>
-            <li><span data-l="en">API Gateway, Lambda and S3, refreshed weekly by EventBridge Scheduler, all in Terraform. Only 3 files touch AWS.</span><span data-l="zh">API Gateway → Lambda → S3，EventBridge Scheduler 每周刷新，Terraform 管理；只有 3 个文件依赖 AWS。</span></li>
+            <li><span data-l="en">The module is set up and wired to Ktor for networking and Kermit for logging.</span><span data-l="zh">模块已经搭好，接入了 Ktor（网络）和 Kermit（日志）。</span></li>
+            <li><span data-l="en">Next, the services move in here, so iOS and Android run one implementation of the same logic while each keeps its own UI.</span><span data-l="zh">接下来把服务层移进来，iOS 和安卓共用同一份逻辑，界面仍各自原生。</span></li>
           </ul>
-          <p class="stack">Python / OpenAPI 3.1 / Lambda / S3 / EventBridge Scheduler / Terraform / pytest + moto</p>
+          <p class="stack">Kotlin Multiplatform / Ktor / Kermit</p>
+        </section>
+
+        <div class="arch-link data" aria-hidden="true"><i></i><i></i></div>
+
+        <div class="arch-row data">
+          <section class="layer built">
+            <h4><span data-l="en">Sale-events API</span><span data-l="zh">促销日历后端</span> <span class="tag">AWS</span><span class="state built"><span data-l="en">Built</span><span data-l="zh">已完成</span></span></h4>
+            <ul>
+              <li><span data-l="en">Collects sale dates from Steam, Epic, itch.io and GOG. An LLM extracts names and dates; code handles time zones and IDs and checks every result. A bad batch is thrown away and the last good data stays.</span><span data-l="zh">抓取 Steam、Epic、itch.io、GOG 的促销日期：LLM 提取活动名和日期，时区和 id 由代码处理并逐条校验；校验不过就整份作废，保留上一份数据。</span></li>
+              <li><span data-l="en">GOG has no fixed source, so a tool-calling agent searches the web; every result must quote its source page, and code checks the quote is really there.</span><span data-l="zh">GOG 没有固定数据来源，用会调用工具的 agent 自己搜索；每条结果必须带来源原文，代码核对引文确实出现在页面里。</span></li>
+              <li><span data-l="en">API Gateway, Lambda and S3, refreshed weekly by EventBridge Scheduler, all in Terraform. Only 3 files touch AWS.</span><span data-l="zh">API Gateway → Lambda → S3，EventBridge Scheduler 每周刷新，Terraform 管理；只有 3 个文件依赖 AWS。</span></li>
+            </ul>
+            <p class="stack">Python / OpenAPI 3.1 / Lambda / S3 / EventBridge Scheduler / Terraform / pytest + moto</p>
+          </section>
+          <section class="layer ext">
+            <h4><span data-l="en">Third-party APIs</span><span data-l="zh">第三方服务</span></h4>
+            <ul>
+              <li><span data-l="en">IsThereAnyDeal and the Steam Store API for prices and game details</span><span data-l="zh">IsThereAnyDeal 和 Steam Store API：价格和游戏详情</span></li>
+              <li><span data-l="en">Firebase Auth and Cloud Firestore for accounts and the wishlist</span><span data-l="zh">Firebase Auth 和 Cloud Firestore：账号和愿望单</span></li>
+              <li><span data-l="en">Any OpenAI-compatible LLM for buy-or-wait advice</span><span data-l="zh">任意 OpenAI 兼容的 LLM：购买建议</span></li>
+            </ul>
+          </section>
         </div>
       </div>
     </article>
