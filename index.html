@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Mona+Sans:wdth,wght@75..125,200..900&display=swap" rel="stylesheet">
 <!-- Bump ?v= whenever styles.css or main.js change, so browsers don't pair new HTML with a cached old file. -->
-<link rel="stylesheet" href="styles.css?v=20261118-2">
+<link rel="stylesheet" href="styles.css?v=20261118-3">
 <script>
   // Apply the saved language before first paint so the page doesn't flicker.
   (function () {
@@ -169,67 +169,103 @@
         </div>
       </div>
 
-      <div class="arch" role="group" aria-label="steaL architecture">
-        <div class="arch-head">
-          <p><span data-l="en">How it fits together: native UI on each platform, one shared core underneath.</span><span data-l="zh">整体架构：各平台原生界面，底下共用一个核心。</span></p>
-          <p class="legend">
-            <span><i class="built"></i><span data-l="en">Built</span><span data-l="zh">已完成</span></span>
-            <span><i class="wip"></i><span data-l="en">In progress</span><span data-l="zh">开发中</span></span>
-          </p>
+      <!-- Repo map: the monorepo's real folders, laid out as the architecture (apps / shared / data). Hatched = in progress.
+           Each folder button opens the panel right after it (main.js [data-repo]); CSS order drops it under its row.
+           States are checked against the repo: iOS doesn't link shared/ yet, and the Android screens are placeholders. -->
+      <div class="repo" data-repo role="group" aria-label="steaL architecture, by folder">
+        <p class="repo-root"><span>steaL/</span><a href="https://github.com/JohnWes7/steaL" target="_blank" rel="noopener"><span data-l="en">JohnWes7/steaL on GitHub</span><span data-l="zh">GitHub 上的 JohnWes7/steaL</span></a></p>
+
+        <div class="repo-grid">
+          <div class="repo-cell is-dir rc-ios">
+            <button class="repo-dir" type="button" id="rd-ios" aria-expanded="false" aria-controls="rp-ios"><span class="repo-name">iosApp/</span><span class="repo-st built"><span data-l="en">built</span><span data-l="zh">已完成</span></span></button>
+            <p class="repo-d"><span data-l="en">The original app, in SwiftUI with Liquid Glass</span><span data-l="zh">最早的版本，SwiftUI + Liquid Glass</span></p>
+          </div>
+          <div class="repo-panel rp-ios" id="rp-ios" role="region" aria-labelledby="rd-ios" hidden>
+            <div class="repo-panel-in">
+              <ul class="repo-sub">
+                <li><code>steaL/Views/</code><span data-l="en">SwiftUI screens and components</span><span data-l="zh">SwiftUI 页面和组件</span></li>
+                <li><code>steaL/ViewModels/</code><span data-l="en">@Observable view models</span><span data-l="zh">@Observable 视图模型</span></li>
+                <li><code>steaL/Services/</code><span data-l="en">One client per API: IsThereAnyDeal, Steam, sale events, the LLM, Firebase</span><span data-l="zh">每个接口一个客户端：IsThereAnyDeal、Steam、促销日历、LLM、Firebase</span></li>
+                <li><code>steaL/Models/</code><span data-l="en">Codable types for each API</span><span data-l="zh">各接口的 Codable 数据模型</span></li>
+              </ul>
+              <div class="repo-notes">
+                <p><span data-l="en">Prices, price history, trailers and reviews come from IsThereAnyDeal and the Steam Store API. Each part of a page loads on its own, so one slow request doesn't hold up the rest.</span><span data-l="zh">价格、史低、预告片和评测来自 IsThereAnyDeal 和 Steam Store API。页面各部分独立加载，一个请求慢不会拖住整页。</span></p>
+                <p><span data-l="en">The buy-or-wait advice works with any OpenAI-compatible provider, and the API key stays in the Keychain. There are price-drop and release alerts, Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">买还是等的建议支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。另有降价和发售提醒、Dynamic Type、VoiceOver、7 个地区、中英文。</span></p>
+                <p class="aside"><span data-l="en">For now it calls these services itself. They move into shared/ next.</span><span data-l="zh">目前这些服务还是 iOS 自己调用，之后会移到 shared/。</span></p>
+                <p class="stack">SwiftUI / SwiftData / Swift Concurrency / TipKit / SwiftLint</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="repo-cell is-dir rc-and wip">
+            <button class="repo-dir" type="button" id="rd-and" aria-expanded="false" aria-controls="rp-and"><span class="repo-name">androidApp/</span><span class="repo-st wip"><span data-l="en">in progress</span><span data-l="zh">开发中</span></span></button>
+            <p class="repo-d"><span data-l="en">The same app in Jetpack Compose and Material 3. The screens are still placeholders</span><span data-l="zh">同一个应用的 Jetpack Compose + Material 3 版本，页面目前还是占位</span></p>
+          </div>
+          <div class="repo-panel rp-and" id="rp-and" role="region" aria-labelledby="rd-and" hidden>
+            <div class="repo-panel-in">
+              <ul class="repo-sub">
+                <li><code>…/navigation/</code><span data-l="en">Five tabs on Navigation 3, each with its own back stack</span><span data-l="zh">Navigation 3 管理 5 个 tab，每个 tab 有自己的返回栈</span></li>
+                <li><code>…/views/</code><span data-l="en">The five tab screens, placeholders for now</span><span data-l="zh">5 个 tab 页面，目前是占位</span></li>
+                <li><code>…/views/theme/</code><span data-l="en">Material 3 colours and type</span><span data-l="zh">Material 3 配色和字体</span></li>
+              </ul>
+              <div class="repo-notes">
+                <p><span data-l="en">The same app, written again in Jetpack Compose and Material 3. The UI stays native on each platform. Only the logic underneath will be shared.</span><span data-l="zh">同一个应用，用 Jetpack Compose 和 Material 3 重新写。界面在每个平台上都保持原生，只有底层逻辑会共用。</span></p>
+                <p><span data-l="en">Tabs, navigation and theme are in place. The screens come next.</span><span data-l="zh">Tab、导航和主题已经搭好，接下来做各个页面。</span></p>
+                <p class="stack">Kotlin / Jetpack Compose / Material 3 / Navigation 3 / Gradle</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="repo-cell is-dir rc-shared wip">
+            <button class="repo-dir" type="button" id="rd-shared" aria-expanded="false" aria-controls="rp-shared"><span class="repo-name">shared/</span><span class="repo-st wip"><span data-l="en">in progress</span><span data-l="zh">开发中</span></span></button>
+            <p class="repo-d"><span data-l="en">Kotlin Multiplatform with Ktor and Kermit. Android already uses it. iOS will once the services move in, starting with IsThereAnyDeal.</span><span data-l="zh">Kotlin Multiplatform + Ktor + Kermit。Android 已经在用，iOS 等服务移进来后接入，第一个是 IsThereAnyDeal。</span></p>
+          </div>
+          <div class="repo-panel rp-shared" id="rp-shared" role="region" aria-labelledby="rd-shared" hidden>
+            <div class="repo-panel-in">
+              <ul class="repo-sub">
+                <li><code>commonMain/…/services/</code><span data-l="en">The Ktor client setup, with JSON rules matched to iOS</span><span data-l="zh">Ktor 客户端配置，JSON 解码规则和 iOS 一致</span></li>
+                <li><code>commonMain/…/models/itad/</code><span data-l="en">IsThereAnyDeal deal models, the first to move in</span><span data-l="zh">IsThereAnyDeal 折扣数据模型，第一批移进来的</span></li>
+                <li><code>commonMain/…/config/</code><span data-l="en">Kermit loggers, one per category</span><span data-l="zh">Kermit 日志，按类别分开</span></li>
+                <li><code>androidMain/ iosMain/</code><span data-l="en">The few platform-specific parts</span><span data-l="zh">少量平台相关代码</span></li>
+              </ul>
+              <div class="repo-notes">
+                <p><span data-l="en">One Kotlin module that builds for Android and as an iOS framework.</span><span data-l="zh">一个 Kotlin 模块，既编译给 Android，也打包成 iOS framework。</span></p>
+                <p><span data-l="en">Android already depends on it. The iOS app doesn't link it yet. It will once its services have moved in here, starting with IsThereAnyDeal.</span><span data-l="zh">Android 已经依赖它。iOS 应用还没接入，等它的服务移进来就会接上，第一个是 IsThereAnyDeal。</span></p>
+                <p class="stack">Kotlin Multiplatform / Ktor / Kermit / kotlinx.serialization</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="repo-cell is-dir rc-back is-open">
+            <button class="repo-dir" type="button" id="rd-back" aria-expanded="true" aria-controls="rp-back"><span class="repo-name">backend/</span><span class="repo-st built"><span data-l="en">built</span><span data-l="zh">已完成</span></span></button>
+            <p class="repo-d"><span data-l="en">The sale calendar's API, in Python on AWS</span><span data-l="zh">促销日历的后端接口，Python 编写，部署在 AWS</span></p>
+            <p class="repo-leaf"><span class="repo-name">api/</span></p>
+            <p class="repo-d"><span data-l="en"><code>openapi.yaml</code>, the OpenAPI 3.1 contract for <code>GET /v1/sale-events</code></span><span data-l="zh"><code>openapi.yaml</code>：<code>GET /v1/sale-events</code> 的 OpenAPI 3.1 契约</span></p>
+          </div>
+          <div class="repo-panel rp-back" id="rp-back" role="region" aria-labelledby="rd-back">
+            <div class="repo-panel-in">
+              <ul class="repo-sub">
+                <li><code>src/sale_events/</code><span data-l="en">The refresh logic, with no cloud SDK</span><span data-l="zh">刷新逻辑，不依赖任何云 SDK</span></li>
+                <li><code>functions/</code><span data-l="en">Two Lambdas: the weekly refresh, and GET /v1/sale-events</span><span data-l="zh">两个 Lambda：每周刷新，以及 GET /v1/sale-events</span></li>
+                <li><code>infra/</code><span data-l="en">Terraform for API Gateway, Lambda, S3 and the scheduler</span><span data-l="zh">Terraform 管理 API Gateway、Lambda、S3 和定时器</span></li>
+                <li><code>tests/</code><span data-l="en">pytest on saved copies of real pages. No network, no AI, no real AWS</span><span data-l="zh">pytest 跑在存下来的真实页面上，不联网、不调 AI、不碰真实 AWS</span></li>
+              </ul>
+              <div class="repo-notes">
+                <p><span data-l="en">Every Monday it collects the store-wide sales for Steam, Epic, itch.io and GOG. DeepSeek only copies the names and dates out of each page. Code adds the times, converts to UTC and makes the IDs. Each name has to appear word for word on the page, so the AI can't make up a sale. If any check fails, the batch is thrown away and the last good data stays.</span><span data-l="zh">每周一抓取 Steam、Epic、itch.io 和 GOG 的全站促销。DeepSeek 只负责从页面里抄出活动名和日期，时刻、UTC 换算和 id 都由代码处理。活动名必须在页面原文里逐字出现，AI 没法凭空编出一场促销。任何一项校验不通过，这次结果整份作废，保留上一份数据。</span></p>
+                <p><span data-l="en">GOG has no schedule to read, so an agent searches the web and opens pages itself. Every sale it reports needs a source page and a quote, and code checks the quote is really on that page.</span><span data-l="zh">GOG 没有可读的促销日程，所以交给一个 agent 自己搜索、打开网页。它报上来的每场促销都要附来源网页和原文引文，代码会核对引文确实出现在那一页。</span></p>
+                <p class="aside"><span data-l="en">Three files are AWS-specific. Moving clouds means swapping those and the Terraform.</span><span data-l="zh">只有 3 个文件依赖 AWS，换云只需要替换它们和 Terraform。</span></p>
+                <p class="stack">Python / OpenAPI 3.1 / Lambda / S3 / EventBridge Scheduler / Terraform / pytest + moto</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="repo-cell rc-out">
+            <p class="repo-out-t"><span data-l="en">Outside the repo</span><span data-l="zh">仓库之外</span></p>
+            <p class="repo-d"><span data-l="en">IsThereAnyDeal and the Steam Store API for prices, Firebase for accounts and the wishlist, any OpenAI-compatible LLM for advice</span><span data-l="zh">IsThereAnyDeal 和 Steam Store API 提供价格，Firebase 负责账号和愿望单，任意 OpenAI 兼容的 LLM 给出购买建议</span></p>
+          </div>
         </div>
 
-        <div class="arch-row two">
-          <section class="layer built">
-            <h4>iOS <span class="tag">SwiftUI, Liquid Glass</span><span class="state built"><span data-l="en">Built</span><span data-l="zh">已完成</span></span></h4>
-            <ul>
-              <li><span data-l="en">Prices, historical lows, trailers and reviews from IsThereAnyDeal and the Steam Store API; each section loads on its own so one slow request doesn't block the page.</span><span data-l="zh">结合 IsThereAnyDeal 和 Steam Store API 展示价格、史低、预告片和评测；各区块独立加载，慢请求不阻塞整页。</span></li>
-              <li><span data-l="en">AI advice works with any OpenAI-compatible provider; the API key stays in the Keychain.</span><span data-l="zh">AI 建议支持任意 OpenAI 兼容服务商，API Key 存在 Keychain。</span></li>
-              <li><span data-l="en">Price-drop and release notifications, Dynamic Type, VoiceOver, 7 regions, English and Chinese.</span><span data-l="zh">降价和发售通知；支持 Dynamic Type、VoiceOver、7 个地区、中英文。</span></li>
-            </ul>
-            <p class="stack">SwiftUI / SwiftData / Swift Concurrency / TipKit / SwiftLint</p>
-          </section>
-          <section class="layer wip">
-            <h4>Android <span class="tag">Jetpack Compose, Material 3</span><span class="state wip"><span data-l="en">In progress</span><span data-l="zh">开发中</span></span></h4>
-            <ul>
-              <li><span data-l="en">The iOS features, rebuilt natively in Jetpack Compose and Material 3 rather than shared UI, so each platform looks and feels like itself.</span><span data-l="zh">把 iOS 上的功能用 Jetpack Compose 和 Material 3 原生重做，而不是共用界面，让每个平台都保持自己的观感。</span></li>
-              <li><span data-l="en">First screens and theme are in place, with tab navigation on Navigation 3.</span><span data-l="zh">初始界面和主题已完成，Navigation 3 管理 Tab 导航。</span></li>
-            </ul>
-            <p class="stack">Kotlin / Jetpack Compose / Material 3 / Navigation 3 / Gradle</p>
-          </section>
-        </div>
-
-        <div class="arch-link" aria-hidden="true"><i></i><i></i></div>
-
-        <section class="layer wip">
-          <h4><span data-l="en">Shared core</span><span data-l="zh">共享核心</span> <span class="tag">Kotlin Multiplatform</span><span class="state wip"><span data-l="en">In progress</span><span data-l="zh">开发中</span></span></h4>
-          <ul>
-            <li><span data-l="en">The module is set up and wired to Ktor for networking and Kermit for logging.</span><span data-l="zh">模块已经搭好，接入了 Ktor（网络）和 Kermit（日志）。</span></li>
-            <li><span data-l="en">The services are moving in here, so iOS and Android will run one implementation of the same logic while each keeps its own UI.</span><span data-l="zh">服务层正在移进来，iOS 和安卓将共用同一份逻辑，界面仍各自原生。</span></li>
-          </ul>
-          <p class="stack">Kotlin Multiplatform / Ktor / Kermit</p>
-        </section>
-
-        <div class="arch-link data" aria-hidden="true"><i></i><i></i></div>
-
-        <div class="arch-row data">
-          <section class="layer built">
-            <h4><span data-l="en">Sale-events API</span><span data-l="zh">促销日历后端</span> <span class="tag">AWS</span><span class="state built"><span data-l="en">Built</span><span data-l="zh">已完成</span></span></h4>
-            <ul>
-              <li><span data-l="en">Collects sale dates from Steam, Epic, itch.io and GOG. An LLM extracts names and dates; code handles time zones and IDs and checks every result. A bad batch is thrown away and the last good data stays.</span><span data-l="zh">抓取 Steam、Epic、itch.io、GOG 的促销日期：LLM 提取活动名和日期，时区和 id 由代码处理并逐条校验；校验不过就整份作废，保留上一份数据。</span></li>
-              <li><span data-l="en">GOG has no fixed source, so a tool-calling agent searches the web; every result must quote its source page, and code checks the quote is really there.</span><span data-l="zh">GOG 没有固定数据来源，用会调用工具的 agent 自己搜索；每条结果必须带来源原文，代码核对引文确实出现在页面里。</span></li>
-              <li><span data-l="en">API Gateway, Lambda and S3, refreshed weekly by EventBridge Scheduler, all in Terraform. Only 3 files touch AWS.</span><span data-l="zh">API Gateway → Lambda → S3，EventBridge Scheduler 每周刷新，Terraform 管理；只有 3 个文件依赖 AWS。</span></li>
-            </ul>
-            <p class="stack">Python / OpenAPI 3.1 / Lambda / S3 / EventBridge Scheduler / Terraform / pytest + moto</p>
-          </section>
-          <section class="layer ext">
-            <h4><span data-l="en">Third-party APIs</span><span data-l="zh">第三方服务</span></h4>
-            <ul>
-              <li><span data-l="en">IsThereAnyDeal and the Steam Store API for prices and game details</span><span data-l="zh">IsThereAnyDeal 和 Steam Store API：价格和游戏详情</span></li>
-              <li><span data-l="en">Firebase Auth and Cloud Firestore for accounts and the wishlist</span><span data-l="zh">Firebase Auth 和 Cloud Firestore：账号和愿望单</span></li>
-              <li><span data-l="en">Any OpenAI-compatible LLM for buy-or-wait advice</span><span data-l="zh">任意 OpenAI 兼容的 LLM：购买建议</span></li>
-            </ul>
-          </section>
-        </div>
+        <p class="repo-key"><span><i aria-hidden="true"></i><span data-l="en">Hatched parts are still being built</span><span data-l="zh">斜纹部分还在开发中</span></span><span><span data-l="en">Open a folder to see what's inside</span><span data-l="zh">点开文件夹看看里面</span></span></p>
       </div>
     </article>
 
@@ -571,6 +607,6 @@
   <p class="lb-cap"></p>
 </dialog>
 
-<script src="main.js?v=20261118-2"></script>
+<script src="main.js?v=20261118-3"></script>
 </body>
 </html>

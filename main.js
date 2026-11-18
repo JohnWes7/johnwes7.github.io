@@ -265,6 +265,28 @@
     go(0);
   });
 
+  /* ── steaL repo map: one folder open at a time ────────── */
+  $$('[data-repo]').forEach(function (box) {
+    var dirs = $$('.repo-dir', box);
+    function set(btn, open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.closest('.repo-cell').classList.toggle('is-open', open);
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = !open;
+    }
+    dirs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        dirs.forEach(function (b) { set(b, false); });
+        if (open) set(btn, true);
+      });
+      // The whole cell opens its folder, not only the name (but selecting text there shouldn't).
+      btn.closest('.repo-cell').addEventListener('click', function (e) {
+        if (e.target.closest('button, a') || String(window.getSelection())) return;
+        btn.click();
+      });
+    });
+  });
+
   /* ── Card spotlight ───────────────────────────────────── */
   if (finePointer.matches) {
     $$('.card').forEach(function (c) {
