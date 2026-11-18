@@ -411,7 +411,7 @@
     var log = $('#log');
     var ghosts = [0, 1, 2, 3].map(function () {
       var g = document.createElement('span');
-      g.className = 'ghost';
+      g.className = 'pipe-ghost';
       g.setAttribute('aria-hidden', 'true');
       pipe.appendChild(g);
       return g;

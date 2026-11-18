@@ -92,13 +92,6 @@ main { max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding:
 .lang .opt { font-family: var(--mono); font-size: 0.72rem; line-height: 1; padding: 6px 10px; border-radius: 999px; color: var(--muted); transition: background-color .2s, color .2s; }
 html[data-lang="en"] .lang .opt[data-for="en"],
 html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color: var(--bg); }
-.pill-cta {
-  text-decoration: none; font-size: 0.9rem; font-weight: 600;
-  padding: 8px 16px; border-radius: 999px;
-  color: var(--amber); border: 1px solid rgba(245, 165, 36, 0.45);
-  transition: background-color .2s, color .2s;
-}
-.pill-cta:hover { background: var(--amber); color: #1a1205; }
 
 /* ══ Buttons ══════════════════════════════════════════════ */
 .btn {
@@ -114,8 +107,14 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 .btn.ghost { background: transparent; }
 .btn .ico { width: 18px; height: 18px; flex: none; fill: currentColor; margin-left: -2px; }
 
-.dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; animation: pulse 2.4s infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(79, 209, 161, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(79, 209, 161, 0); } }
+/* Quiet links with an icon: the hero keeps one real button (Email) and lists the rest as text. */
+.tlink {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 0;
+  color: var(--soft); font-size: 0.98rem; font-weight: 550; text-decoration: none;
+  border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+}
+.tlink:hover { color: var(--text); border-bottom-color: var(--line-2); }
+.tlink .ico { width: 17px; height: 17px; flex: none; fill: currentColor; }
 
 /* ══ Hero ═════════════════════════════════════════════════ */
 .hero {
@@ -125,12 +124,6 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
   align-items: center;
   min-height: calc(100svh - 70px);
   padding: clamp(28px, 6vh, 64px) 0 clamp(48px, 8vh, 88px);
-}
-.avail {
-  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 30px;
-  padding: 6px 14px 6px 11px; border-radius: 999px;
-  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03);
-  color: var(--soft); font-size: 0.88rem;
 }
 .name {
   margin: 0;
@@ -149,11 +142,9 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 }
 .role { margin: 30px 0 0; font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 650; font-stretch: 105%; letter-spacing: -0.01em; }
 .lede { margin: 12px 0 0; max-width: 32em; color: var(--muted); font-size: 1.08rem; }
-.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-.facts { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--faint); font-size: 0.9rem; }
-.facts li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); margin-right: 9px; vertical-align: 0.2em; }
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; margin-top: 30px; }
+.facts { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 6px 28px; color: var(--faint); font-size: 0.9rem; }
 .intro > :not(.name) { animation: fadeUp .9s var(--ease) both; animation-delay: .32s; }
-.intro > .avail { animation-delay: .05s; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
 /* ── Pipeline card ─────────────────────────────────────── */
@@ -190,12 +181,13 @@ html[data-lang="zh"] .lang .opt[data-for="zh"] { background: var(--text); color:
 .node.gcp { border-style: dashed; }
 .node.hot { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(245, 165, 36, .14), 0 0 30px -6px rgba(245, 165, 36, .55); transform: translateY(-2px); }
 .node.hot b { color: var(--amber); }
-.packet, .ghost {
+/* .pipe-ghost, not .ghost: a bare .ghost also matched .btn.ghost and hid those buttons. */
+.packet, .pipe-ghost {
   position: absolute; z-index: 2; left: 0; top: 0; border-radius: 50%;
   background: var(--amber); opacity: 0; pointer-events: none;
 }
 .packet { width: 12px; height: 12px; margin: -6px 0 0 -6px; box-shadow: 0 0 16px 4px rgba(245, 165, 36, .6); }
-.ghost { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; }
+.pipe-ghost { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; }
 .send {
   grid-row: var(--r); grid-column: var(--c);
   align-self: center; justify-self: stretch; z-index: 1;
@@ -657,7 +649,6 @@ html[lang="zh-CN"] .repo-d, html[lang="zh-CN"] .repo-notes p:not(.stack) { line-
   .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
   .node, .send { grid-row: var(--mr); grid-column: var(--mc); }
   .pipe-wrap { padding: 14px; border-radius: 18px; }
-  .pill-cta { display: none; }
   .card-body { padding: 20px 20px 24px; }
   .repo-cell { padding: 18px 18px 20px; }
   .repo-panel { padding: 4px 18px 22px; }

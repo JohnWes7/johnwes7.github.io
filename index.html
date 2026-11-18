@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Mona+Sans:wdth,wght@75..125,200..900&display=swap" rel="stylesheet">
 <!-- Bump ?v= whenever styles.css or main.js change, so browsers don't pair new HTML with a cached old file. -->
-<link rel="stylesheet" href="styles.css?v=20261118-3">
+<link rel="stylesheet" href="styles.css?v=20261119-1">
 <script>
   // Apply the saved language before first paint so the page doesn't flicker.
   (function () {
@@ -51,7 +51,6 @@
     <button class="lang" type="button" id="langToggle" aria-label="Switch language / 切换语言">
       <span class="opt" data-for="en">EN</span><span class="opt" data-for="zh">中</span>
     </button>
-    <a class="pill-cta" href="mailto:1246215651@qq.com"><span data-l="en">Email me</span><span data-l="zh">发邮件</span></a>
   </div>
 </header>
 
@@ -61,7 +60,6 @@
   <!-- ═════════════ Hero ═════════════ -->
   <section class="hero">
     <div class="intro">
-      <p class="avail"><span class="dot-live" aria-hidden="true"></span><span data-l="en">Graduating Dec 2026, open to roles in Melbourne</span><span data-l="zh">2026 年 12 月毕业，正在寻找墨尔本的工作机会</span></p>
       <h1 class="name">
         <span class="line"><span>Yijiang</span></span>
         <span class="line"><span>Luo <i class="cn" lang="zh-CN">罗熠桨</i></span></span>
@@ -71,26 +69,25 @@
         <span data-l="zh">云计算与全栈软件开发。</span>
       </p>
       <p class="lede">
-        <span data-l="en">I like the problems between code and infrastructure: making a service scale, stay up under load, and cost less.</span>
-        <span data-l="zh">我喜欢代码与基础设施之间的问题：让服务能扩展、扛得住负载、成本更低。</span>
+        <span data-l="en">I build apps and the cloud services behind them. Right now that's steaL, a game-deals app with its own AWS backend.</span>
+        <span data-l="zh">我做应用，也做它们背后的云服务。最近在做的是 steaL，一个游戏折扣应用，后端跑在 AWS 上。</span>
       </p>
       <div class="links">
         <a class="btn primary" href="mailto:1246215651@qq.com"><span data-l="en">Email me</span><span data-l="zh">发邮件</span></a>
-        <a class="btn" href="https://github.com/JohnWes7" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/yijiang-luo-924250412" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <a class="tlink" href="https://github.com/JohnWes7" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+        <a class="tlink" href="https://www.linkedin.com/in/yijiang-luo-924250412" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
         <!-- Resume PDFs: built from doc_local/cv/resume.html by doc_local/cv/build.sh. The Chinese PDF is offered only in the Chinese UI. -->
-        <a class="btn" href="assets/Yijiang-Luo-Resume-zh.pdf" download data-l="zh"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg>中文简历</a>
-        <a class="btn" href="assets/Yijiang-Luo-Resume.pdf" download><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg><span data-l="en">Resume</span><span data-l="zh">英文简历</span></a>
+        <a class="tlink" href="assets/Yijiang-Luo-Resume-zh.pdf" download data-l="zh"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg>中文简历</a>
+        <a class="tlink" href="assets/Yijiang-Luo-Resume.pdf" download><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg><span data-l="en">Resume</span><span data-l="zh">英文简历</span></a>
       </div>
       <ul class="facts">
-        <li><span data-l="en">Monash IT, Software Development</span><span data-l="zh">蒙纳士大学 IT，软件开发方向</span></li>
-        <li><span data-l="en">Melbourne, VIC</span><span data-l="zh">墨尔本，维多利亚州</span></li>
+        <li><span data-l="en">Monash IT, graduating Dec 2026</span><span data-l="zh">蒙纳士大学 IT，2026 年 12 月毕业</span></li>
+        <li><span data-l="en">Melbourne, open to roles</span><span data-l="zh">墨尔本，正在寻找工作机会</span></li>
       </ul>
     </div>
 
     <figure class="pipe-wrap" aria-labelledby="pipeCap">
       <figcaption id="pipeCap" class="pipe-cap">
-        <span class="dot-live" aria-hidden="true"></span>
         <span data-l="en">Aussie EcoGuard ingest pipeline, which I designed. Simulated run.</span>
         <span data-l="zh">我设计的 Aussie EcoGuard 处理流水线（模拟运行）</span>
       </figcaption>
@@ -324,7 +321,6 @@
           <p class="stack">S3 / EventBridge / SQS / Lambda / DynamoDB / Cognito / Cloud Run / Terraform / Python / pytest + moto</p>
           <div class="actions">
             <a class="btn" href="https://github.com/JohnWes7/aussie-ecoguard-multicloud-platform" target="_blank" rel="noopener"><span data-l="en">Source on GitHub</span><span data-l="zh">GitHub 源码</span></a>
-            <button class="btn ghost" type="button" data-zoom="assets/work/eco-architecture.webp" data-cap-en="Aussie EcoGuard architecture on AWS and GCP" data-cap-zh="Aussie EcoGuard 在 AWS 和 GCP 上的架构"><span data-l="en">View architecture</span><span data-l="zh">查看架构图</span></button>
           </div>
         </div>
 
@@ -607,6 +603,6 @@
   <p class="lb-cap"></p>
 </dialog>
 
-<script src="main.js?v=20261118-3"></script>
+<script src="main.js?v=20261119-1"></script>
 </body>
 </html>
