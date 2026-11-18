@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Mona+Sans:wdth,wght@75..125,200..900&display=swap" rel="stylesheet">
 <!-- Bump ?v= whenever styles.css or main.js change, so browsers don't pair new HTML with a cached old file. -->
-<link rel="stylesheet" href="styles.css?v=20261119-1">
+<link rel="stylesheet" href="styles.css?v=20261119-2">
 <script>
   // Apply the saved language before first paint so the page doesn't flicker.
   (function () {
@@ -111,7 +111,7 @@
 
   <!-- ═════════════ About ═════════════ -->
   <section class="about" aria-label="About">
-    <p data-l="en">I'm an IT student at Monash University (Software Development), graduating in December 2026. I build software that runs in the cloud. I've designed a multi-cloud serverless ML platform on AWS and GCP, deployed an autoscaled API on GKE, and shipped full-stack web apps and native iOS and Android apps. I'm looking for software, cloud and IT consulting roles.</p>
+    <p data-l="en">I'm an IT student at Monash University (Software Development), graduating in December 2026. I build software that runs in the cloud. I've designed a multi-cloud serverless ML platform on AWS and GCP, deployed an autoscaled API on GKE, and built full-stack web apps and native iOS and Android apps. I'm looking for software, cloud and IT consulting roles.</p>
     <p data-l="zh">蒙纳士大学 IT（软件开发方向）学生，2026 年 12 月毕业。热衷于构建在云端运行的软件：做过基于 AWS + GCP 的多云 Serverless 机器学习平台、GKE 上自动扩缩容的 API，以及全栈 Web 应用和原生 iOS / 安卓应用。正在寻找软件开发、云计算及 IT 咨询相关岗位。</p>
   </section>
 
@@ -329,7 +329,6 @@
             <div class="gallery" data-gallery>
               <div class="browser">
                 <div class="browser-bar">
-                  <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
                   <div class="g-caps" aria-live="polite">
                     <p class="cap is-active"><span data-l="en">Search the library by species</span><span data-l="zh">按物种搜索媒体库</span></p>
                     <p class="cap"><span data-l="en">Chatbot that finds sightings</span><span data-l="zh">帮你找目击记录的聊天机器人</span></p>
@@ -364,9 +363,9 @@
           <p class="meta"><span><span data-l="en">Solo, 2026 S2</span><span data-l="zh">独立完成，2026 下半年</span></span></p>
           <p class="pitch"><span data-l="en">A FastAPI + YOLO parking-detection API on GKE that scales from 1 to 8 pods with load.</span><span data-l="zh">部署在 GKE 上的 FastAPI + YOLO 停车位检测 API，按负载在 1–8 个 Pod 之间自动扩缩容。</span></p>
           <ul class="points">
-            <li><span data-l="en">Model weights load from Cloud Storage at startup through an initContainer, so switching models is a ConfigMap change, not an image rebuild.</span><span data-l="zh">模型权重启动时由 initContainer 从 Cloud Storage 下载：换模型只改 ConfigMap，不用重新构建镜像。</span></li>
-            <li><span data-l="en">Two-level cache (in-pod TTL plus shared Redis) that serves stale data while refreshing, with a cross-pod lock so only one pod re-runs inference.</span><span data-l="zh">两级缓存（Pod 内 TTL + 共享 Redis），过期前先返回旧值、后台刷新；跨 Pod 的锁保证只有一个 Pod 重新推理。</span></li>
-            <li><span data-l="en">YOLO runs in a thread pool so it never blocks the event loop; load-tested with Locust at 1, 2, 4 and 8 pods.</span><span data-l="zh">YOLO 放进线程池，不阻塞事件循环；用 Locust 在 1 / 2 / 4 / 8 个副本上压测。</span></li>
+            <li><span data-l="en">An initContainer pulls the model weights from Cloud Storage when a pod starts. Changing the model is a ConfigMap edit.</span><span data-l="zh">Pod 启动时由 initContainer 从 Cloud Storage 拉取模型权重，换模型只需改一下 ConfigMap。</span></li>
+            <li><span data-l="en">Two-level cache (in-pod TTL plus shared Redis). Pods serve the stale result while one of them refreshes it under a Redis lock.</span><span data-l="zh">两级缓存（Pod 内 TTL + 共享 Redis）。刷新期间各 Pod 照常返回旧结果，由拿到 Redis 锁的那一个 Pod 重新推理。</span></li>
+            <li><span data-l="en">YOLO runs in a thread pool, off the event loop. Load-tested with Locust at 1, 2, 4 and 8 pods.</span><span data-l="zh">YOLO 放在线程池里跑，不占用事件循环。用 Locust 在 1、2、4、8 个 Pod 上做了压测。</span></li>
           </ul>
           <p class="stack">Python / FastAPI / YOLO / GKE / HPA / Cloud Run / Cloud Storage / Redis / Firestore / Locust</p>
           <div class="actions">
@@ -376,11 +375,10 @@
         </div>
 
         <div class="feature-media">
-          <div class="stage-web">
+          <div class="stage-web low-card">
             <div class="gallery" data-gallery>
               <div class="browser paper">
                 <div class="browser-bar">
-                  <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
                   <div class="g-caps" aria-live="polite">
                     <p class="cap is-active"><span data-l="en">Load test: max users by pod count</span><span data-l="zh">压测：不同 Pod 数的最大用户数</span></p>
                     <p class="cap"><span data-l="en">Load test: response time as users grow</span><span data-l="zh">压测：用户增加时的响应时间</span></p>
@@ -473,7 +471,7 @@
             <summary><span data-l="en">What I built</span><span data-l="zh">我做了什么</span></summary>
             <ul>
               <li><span data-l="en">Monthly temperature, humidity and rainy days, plus a compass-style wind chart built with LOD expressions and SIN/COS.</span><span data-l="zh">月度气温、湿度、雨天数；用 LOD 表达式和 SIN/COS 做罗盘式风向图。</span></li>
-              <li><span data-l="en">Linked legends and tooltips, weather for about 49 locations, missing data marked rather than hidden.</span><span data-l="zh">图例联动和 tooltip，约 49 个地点的天气；缺失数据明确标注。</span></li>
+              <li><span data-l="en">Linked legends and tooltips, weather for about 49 locations, with missing data labelled.</span><span data-l="zh">图例联动和 tooltip，约 49 个地点的天气；缺失数据明确标注。</span></li>
             </ul>
           </details>
           <p class="stack">Tableau Public / calculated fields / LOD expressions</p>
@@ -603,6 +601,6 @@
   <p class="lb-cap"></p>
 </dialog>
 
-<script src="main.js?v=20261119-1"></script>
+<script src="main.js?v=20261119-2"></script>
 </body>
 </html>

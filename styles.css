@@ -406,6 +406,8 @@ html[lang="zh-CN"] .repo-d, html[lang="zh-CN"] .repo-notes p:not(.stack) { line-
 
 /* ── Browser frame + gallery ──────────────────────────── */
 .stage-web { position: relative; padding-bottom: 9%; }
+/* SmartPark: the cache card hangs lower so it doesn't cover the chart's x-axis labels. */
+.stage-web.low-card { padding-bottom: 24%; }
 .browser {
   --dir: 1;
   position: relative; overflow: hidden; border-radius: 14px;
@@ -422,8 +424,6 @@ html[lang="zh-CN"] .repo-d, html[lang="zh-CN"] .repo-notes p:not(.stack) { line-
   display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 14px;
   background: linear-gradient(#18252e, #131f27); border-bottom: 1px solid var(--line);
 }
-.lights { display: flex; gap: 6px; flex: none; }
-.lights i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
 .browser-bar .g-caps { flex: 1; min-width: 0; text-align: center; }
 .browser-bar .cap { font-size: 0.8rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .view { position: relative; aspect-ratio: 16 / 10; background: #fff; cursor: zoom-in; overflow: hidden; }
@@ -629,7 +629,7 @@ html[lang="zh-CN"] .repo-d, html[lang="zh-CN"] .repo-notes p:not(.stack) { line-
 @media (max-width: 760px) {
   .bar nav { display: none; }
   .bar-end { margin-left: auto; }
-  .stage-web { padding-bottom: 0; }
+  .stage-web, .stage-web.low-card { padding-bottom: 0; }
   .float-card, .feature.flip .float-card {
     position: relative; left: auto; right: auto; bottom: auto;
     display: block; width: 62%; margin: -28px 0 0 auto; transform: rotate(-2deg);
